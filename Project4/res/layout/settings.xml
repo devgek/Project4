@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/labelSettingsButtonBeginCustomer"
+        style="@style/settingPageLabelFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15px"
+        android:text="@string/labelSettingsButtonBeginCustomer" />
+
+    <EditText
+        android:id="@+id/inputSettingsButtonBeginCustomer"
+        style="@style/settingPageEditFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/labelSettingsButtonEndCustomer"
+        style="@style/settingPageLabelFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelSettingsButtonEndCustomer"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/inputSettingsButtonEndCustomer"
+        style="@style/settingPageEditFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/labelSettingsButtonBeginOffice"
+        style="@style/settingPageLabelFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelSettingsButtonBeginOffice"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/inputSettingsButtonBeginOffice"
+        style="@style/settingPageEditFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/labelSettingsButtonEndOffice"
+        style="@style/settingPageLabelFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelSettingsButtonEndOffice"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/inputSettingsButtonEndOffice"
+        style="@style/settingPageEditFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonSettingsSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal|center"
+        android:layout_marginTop="15dp"
+        android:text="@string/buttonSettingsSave" >
+    </Button>
+
+</LinearLayout>

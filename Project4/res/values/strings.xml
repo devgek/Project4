@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Project4</string>
+    <string name="labelButtonBegin">Kommen Kunde</string>
+	<string name="labelButtonEnd">Gehen Kunde</string>
+    <string name="labelButtonBegin2">Kommen Office</string>
+	<string name="labelButtonEnd2">Gehen Office</string>
+	<string name="menuSettings">Einstellungen</string>
+	<string name="menuStatistic">Statistik</string>
+	<string name="serviceName">com.gek.and.project4service.SERVICE</string>
+	<string name="labelSettingsButtonBeginCustomer">Text auf Button Kommen Kunde</string>
+	<string name="labelSettingsButtonEndCustomer">Text auf Button Gehen Kunde</string>
+	<string name="labelSettingsButtonBeginOffice">Text auf Button Kommen HomeOffice</string>
+	<string name="labelSettingsButtonEndOffice">Text auf Button Gehen HomeOffice</string>
+	<string name="buttonSettingsSave">Speichern</string>
+
+</resources>
