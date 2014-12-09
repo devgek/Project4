@@ -1,7 +1,17 @@
-package com.gek.and.project4;
+package com.gek.and.project4.activity;
 
 import java.util.List;
 import java.util.Map;
+
+import com.gek.and.project4.AppConstants;
+import com.gek.and.project4.R;
+import com.gek.and.project4.SettingsActivity;
+import com.gek.and.project4.TimeLogEntry;
+import com.gek.and.project4.TimeLogUtil;
+import com.gek.and.project4.R.id;
+import com.gek.and.project4.R.layout;
+import com.gek.and.project4.R.string;
+import com.gek.and.project4.util.ActivityUtil;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -12,7 +22,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
-public class TimeLogMain extends ListActivity {
+public class OldMainActivity extends ListActivity {
 	private Map<String,?> settings;
 	private Button buttonCustomerBegin;
 	private Button buttonCustomerEnd;
@@ -70,7 +80,7 @@ public class TimeLogMain extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-				ActivityUtil.logThis(TimeLogMain.this, buttonCustomerBegin.getText().toString());
+				ActivityUtil.logThis(OldMainActivity.this, buttonCustomerBegin.getText().toString());
 				
 				finish();
 			}
@@ -81,7 +91,7 @@ public class TimeLogMain extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-				ActivityUtil.logThis(TimeLogMain.this, buttonCustomerEnd.getText().toString());
+				ActivityUtil.logThis(OldMainActivity.this, buttonCustomerEnd.getText().toString());
 				
 				finish();
 			}
@@ -92,7 +102,7 @@ public class TimeLogMain extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-				ActivityUtil.logThis(TimeLogMain.this, buttonOfficeBegin.getText().toString());
+				ActivityUtil.logThis(OldMainActivity.this, buttonOfficeBegin.getText().toString());
 				
 				finish();
 			}
@@ -103,7 +113,7 @@ public class TimeLogMain extends ListActivity {
 			
 			@Override
 			public void onClick(View v) {
-				ActivityUtil.logThis(TimeLogMain.this, buttonOfficeEnd.getText().toString());
+				ActivityUtil.logThis(OldMainActivity.this, buttonOfficeEnd.getText().toString());
 				
 				finish();
 			}

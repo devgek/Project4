@@ -1,5 +1,7 @@
 package com.gek.and.project4;
 
+import com.gek.and.project4.util.ActivityUtil;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;

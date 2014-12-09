@@ -1,6 +1,8 @@
-package com.gek.and.project4;
+package com.gek.and.project4.util;
 
 import java.util.Map;
+
+import com.gek.and.project4.AppConstants;
 
 import android.app.Activity;
 import android.content.Intent;
