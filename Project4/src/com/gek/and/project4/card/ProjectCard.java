@@ -3,30 +3,32 @@ package com.gek.and.project4.card;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gek.and.project4.model.Project;
+import com.gek.and.project4.model.ProjectFactory;
 import com.gek.and.project4.types.ProjectType;
 
 public class ProjectCard {
-	private ProjectType type;
+	private Project project;
 	
-	public ProjectCard(ProjectType type) {
-		this.type = type;
+	public ProjectCard(Project project) {
+		this.project = project;
 	}
 
-	public ProjectType getType() {
-		return type;
+	public Project getProject() {
+		return project;
 	}
 
-	public static List<ProjectCard> getProjectList() {
+	public static List<ProjectCard> getProjectCardList() {
 		List<ProjectCard> cardList = new ArrayList<ProjectCard>();
 		for (ProjectType type : ProjectType.getPriorityList()) {
-			cardList.add(new ProjectCard(type));
+			cardList.add(new ProjectCard(ProjectFactory.createProject(type)));
 		}
 		
 		return cardList;
 	}
 	
 	public String getLine1() {
-		return type.getCode();
+		return project.getTitle();
 	}
 	
 	public String getLine2() {

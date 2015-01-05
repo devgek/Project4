@@ -2,6 +2,18 @@
 <resources>
 
     <string name="app_name">Project4</string>
+    
+    <string name="title_project_dashboard">Projektübersicht</string>
+    <string name="title_project_add">Projekt hinzufügen</string>
+    <string name="title_project_change">Projekt bearbeiten</string>
+
+    <string name="comment_project_added">Projekt hinzugefügt.</string>
+
+    <string name="project_detail_customer_label">KUNDE</string>
+    <string name="project_detail_customer_text"></string>
+    <string name="project_detail_project_label">PROJEKT</string>
+    <string name="project_detail_project_text"></string>
+    
     <string name="labelButtonBegin">Kommen Kunde</string>
 	<string name="labelButtonEnd">Gehen Kunde</string>
     <string name="labelButtonBegin2">Kommen Office</string>
@@ -14,5 +26,11 @@
 	<string name="labelSettingsButtonBeginOffice">Text auf Button Kommen HomeOffice</string>
 	<string name="labelSettingsButtonEndOffice">Text auf Button Gehen HomeOffice</string>
 	<string name="buttonSettingsSave">Speichern</string>
-
+	<string name="buttonProjectCome">Kommen</string>
+	<string name="buttonProjectGo">Gehen</string>
+	<string name="action_add_project">Neues Projekt</string>
+	<string name="action_settings">Einstellungen</string>
+	<string name="action_cancel">Abbrechen</string>
+	<string name="action_save">Speichern</string>
+					
 </resources>

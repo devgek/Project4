@@ -3,9 +3,9 @@ package com.gek.and.project4.activity;
 import java.util.Map;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.gek.and.project4.R;
@@ -17,30 +17,41 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	  MenuItem item1 = menu.add(R.string.menuSettings);
-	  {
-	    item1.setIcon(android.R.drawable.ic_menu_preferences);
-	    item1.setIntent(new Intent(this, SettingsActivity.class));
-	  }
-	  
-	  MenuItem item2 = menu.add(R.string.menuStatistic);
-	  {
-	    item2.setIcon(android.R.drawable.ic_menu_search);
-	    item2.setIntent(new Intent(getApplicationContext(), SettingsActivity.class));
-	  }
-	  
-	  return super.onCreateOptionsMenu(menu);
+	    // Inflate the menu items for use in the action bar
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main, menu);
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		startActivity(item.getIntent());
-		return true;
+		// Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_add_project:
+	            addProject();
+	            return true;
+	        case R.id.action_settings:
+	            changeSettings();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	    //		startActivity(item.getIntent());
+//		return true;
+	}
+
+	private void changeSettings() {
+    	ActivityUtil.startActivity(getApplicationContext(), SettingsActivity.class);
+	}
+
+	private void addProject() {
+    	ActivityUtil.startActivity(getApplicationContext(), ProjectDetailActivity.class);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setTitle(R.string.title_project_dashboard);
 		readSettings();
 	}
 

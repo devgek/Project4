@@ -162,49 +162,99 @@ containing a value of this type.
         public static final int cardview_default_radius=0x7f050000;
     }
     public static final class drawable {
-        public static final int ic_action_settings=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int ic_action_accept=0x7f020000;
+        public static final int ic_action_cancel=0x7f020001;
+        public static final int ic_action_new=0x7f020002;
+        public static final int ic_action_settings=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int project_card_color_bar=0x7f020005;
     }
     public static final class id {
-        public static final int buttonCustomerBegin=0x7f080000;
-        public static final int buttonCustomerEnd=0x7f080001;
-        public static final int buttonOfficeBegin=0x7f080002;
-        public static final int buttonOfficeEnd=0x7f080003;
-        public static final int buttonSettingsSave=0x7f080010;
-        public static final int card_view_project=0x7f080004;
-        public static final int inputSettingsButtonBeginCustomer=0x7f080009;
-        public static final int inputSettingsButtonBeginOffice=0x7f08000d;
-        public static final int inputSettingsButtonEndCustomer=0x7f08000b;
-        public static final int inputSettingsButtonEndOffice=0x7f08000f;
-        public static final int labelSettingsButtonBeginCustomer=0x7f080008;
-        public static final int labelSettingsButtonBeginOffice=0x7f08000c;
-        public static final int labelSettingsButtonEndCustomer=0x7f08000a;
-        public static final int labelSettingsButtonEndOffice=0x7f08000e;
-        public static final int project_card_line1=0x7f080005;
-        public static final int project_card_line2=0x7f080006;
-        public static final int project_list_view=0x7f080007;
+        public static final int action_add_project=0x7f090028;
+        public static final int action_cancel=0x7f09002a;
+        public static final int action_save=0x7f09002b;
+        public static final int action_settings=0x7f090029;
+        public static final int buttonCome=0x7f09000f;
+        public static final int buttonCustomerBegin=0x7f090000;
+        public static final int buttonCustomerEnd=0x7f090001;
+        public static final int buttonGo=0x7f090010;
+        public static final int buttonOfficeBegin=0x7f090002;
+        public static final int buttonOfficeEnd=0x7f090003;
+        public static final int buttonSettingsSave=0x7f090027;
+        public static final int cardDayLabel=0x7f09000a;
+        public static final int cardDayValue=0x7f09000b;
+        public static final int cardMonthLabel=0x7f09000d;
+        public static final int cardMonthValue=0x7f09000e;
+        public static final int card_view_project=0x7f090004;
+        public static final int inputSettingsButtonBeginCustomer=0x7f090020;
+        public static final int inputSettingsButtonBeginOffice=0x7f090024;
+        public static final int inputSettingsButtonEndCustomer=0x7f090022;
+        public static final int inputSettingsButtonEndOffice=0x7f090026;
+        public static final int labelSettingsButtonBeginCustomer=0x7f09001f;
+        public static final int labelSettingsButtonBeginOffice=0x7f090023;
+        public static final int labelSettingsButtonEndCustomer=0x7f090021;
+        public static final int labelSettingsButtonEndOffice=0x7f090025;
+        public static final int myCardInnerTable=0x7f090008;
+        public static final int projectDetailCustomerColor=0x7f090017;
+        public static final int projectDetailCustomerLabel=0x7f090013;
+        public static final int projectDetailCustomerLabel2=0x7f090015;
+        public static final int projectDetailCustomerText=0x7f090014;
+        public static final int projectDetailProjectColor=0x7f09001d;
+        public static final int projectDetailProjectLabel=0x7f090019;
+        public static final int projectDetailProjectLabel2=0x7f09001b;
+        public static final int projectDetailProjectText=0x7f09001a;
+        public static final int projectDetailTable=0x7f090011;
+        public static final int projectDetailTableRow1=0x7f090012;
+        public static final int projectDetailTableRow2=0x7f090016;
+        public static final int projectDetailTableRow3=0x7f090018;
+        public static final int projectDetailTableRow4=0x7f09001c;
+        public static final int project_card_color_bar=0x7f090005;
+        public static final int project_card_line1=0x7f090006;
+        public static final int project_card_line2=0x7f090007;
+        public static final int project_list_view=0x7f09001e;
+        public static final int tableRow1=0x7f090009;
+        public static final int tableRow2=0x7f09000c;
     }
     public static final class layout {
         public static final int main=0x7f030000;
         public static final int project_card=0x7f030001;
-        public static final int project_list=0x7f030002;
-        public static final int rowview=0x7f030003;
-        public static final int settings=0x7f030004;
+        public static final int project_detail=0x7f030002;
+        public static final int project_list=0x7f030003;
+        public static final int rowview=0x7f030004;
+        public static final int settings=0x7f030005;
+    }
+    public static final class menu {
+        public static final int main=0x7f080000;
+        public static final int project=0x7f080001;
     }
     public static final class string {
+        public static final int action_add_project=0x7f070017;
+        public static final int action_cancel=0x7f070019;
+        public static final int action_save=0x7f07001a;
+        public static final int action_settings=0x7f070018;
         public static final int app_name=0x7f070000;
-        public static final int buttonSettingsSave=0x7f07000c;
-        public static final int labelButtonBegin=0x7f070001;
-        public static final int labelButtonBegin2=0x7f070003;
-        public static final int labelButtonEnd=0x7f070002;
-        public static final int labelButtonEnd2=0x7f070004;
-        public static final int labelSettingsButtonBeginCustomer=0x7f070008;
-        public static final int labelSettingsButtonBeginOffice=0x7f07000a;
-        public static final int labelSettingsButtonEndCustomer=0x7f070009;
-        public static final int labelSettingsButtonEndOffice=0x7f07000b;
-        public static final int menuSettings=0x7f070005;
-        public static final int menuStatistic=0x7f070006;
-        public static final int serviceName=0x7f070007;
+        public static final int buttonProjectCome=0x7f070015;
+        public static final int buttonProjectGo=0x7f070016;
+        public static final int buttonSettingsSave=0x7f070014;
+        public static final int comment_project_added=0x7f070004;
+        public static final int labelButtonBegin=0x7f070009;
+        public static final int labelButtonBegin2=0x7f07000b;
+        public static final int labelButtonEnd=0x7f07000a;
+        public static final int labelButtonEnd2=0x7f07000c;
+        public static final int labelSettingsButtonBeginCustomer=0x7f070010;
+        public static final int labelSettingsButtonBeginOffice=0x7f070012;
+        public static final int labelSettingsButtonEndCustomer=0x7f070011;
+        public static final int labelSettingsButtonEndOffice=0x7f070013;
+        public static final int menuSettings=0x7f07000d;
+        public static final int menuStatistic=0x7f07000e;
+        public static final int project_detail_customer_label=0x7f070005;
+        public static final int project_detail_customer_text=0x7f070006;
+        public static final int project_detail_project_label=0x7f070007;
+        public static final int project_detail_project_text=0x7f070008;
+        public static final int serviceName=0x7f07000f;
+        public static final int title_project_add=0x7f070002;
+        public static final int title_project_change=0x7f070003;
+        public static final int title_project_dashboard=0x7f070001;
     }
     public static final class style {
         /** 

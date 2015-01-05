@@ -50,6 +50,7 @@
                   android:exported="true"
                   android:parentActivityName="com.gek.and.project4.activity.MainActivity">
         </activity>
+        <activity android:name="com.gek.and.project4.activity.ProjectDetailActivity"/>
     </application>
 
 </manifest>

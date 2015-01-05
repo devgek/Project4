@@ -13,9 +13,9 @@ import com.gek.and.project4.types.ProjectType;
 	@Test
 	public void testCompare() {
 		ProjectTypeComparator c = new ProjectTypeComparator();
-		int result1 = c.compare(ProjectType.PIPE, ProjectType.VVO);
+		int result1 = c.compare(ProjectType.PIPE, ProjectType.AVENUM);
 		int result2 = c.compare(ProjectType.PIPE, ProjectType.PIPE);
-		int result3 = c.compare(ProjectType.VVO, ProjectType.KAHRER_SOFTWARE);
+		int result3 = c.compare(ProjectType.AVENUM, ProjectType.KAHRER_SOFTWARE);
 		assertTrue(result1 == -1);
 		assertTrue(result2 == 0);
 		assertTrue(result3 == 1);
