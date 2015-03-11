@@ -8,7 +8,59 @@
 package com.gek.and.project4;
 
 public final class R {
+    public static final class array {
+        public static final int period=0x7f070000;
+        public static final int periodSummaryTitle=0x7f070001;
+    }
     public static final class attr {
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bar_length=0x7f010001;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bar_orientation_horizontal=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bar_pointer_halo_radius=0x7f010003;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bar_pointer_radius=0x7f010002;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int bar_thickness=0x7f010000;
         /**  Background color for CardView. 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -18,7 +70,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardBackgroundColor=0x7f010000;
+        public static final int cardBackgroundColor=0x7f01000b;
         /**  Corner radius for CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -29,7 +81,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardCornerRadius=0x7f010001;
+        public static final int cardCornerRadius=0x7f01000c;
         /**  Elevation for CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -40,7 +92,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardElevation=0x7f010002;
+        public static final int cardElevation=0x7f01000d;
         /**  Maximum Elevation for CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -51,7 +103,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardMaxElevation=0x7f010003;
+        public static final int cardMaxElevation=0x7f01000e;
         /**  Add padding to CardView on v20 and before to prevent intersections between the Card content and rounded corners. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -60,7 +112,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardPreventCornerOverlap=0x7f010005;
+        public static final int cardPreventCornerOverlap=0x7f010010;
         /**  Add padding in API v21+ as well to have the same measurements with previous versions. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -69,7 +121,67 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cardUseCompatPadding=0x7f010004;
+        public static final int cardUseCompatPadding=0x7f01000f;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_center_halo_radius=0x7f010008;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_center_radius=0x7f010007;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_pointer_halo_radius=0x7f01000a;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_pointer_radius=0x7f010009;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_wheel_radius=0x7f010005;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int color_wheel_thickness=0x7f010006;
         /**  Inner padding between the edges of the Card and children of the CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -80,7 +192,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int contentPadding=0x7f010006;
+        public static final int contentPadding=0x7f010011;
         /**  Inner padding between the bottom edge of the Card and children of the CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -91,7 +203,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int contentPaddingBottom=0x7f01000a;
+        public static final int contentPaddingBottom=0x7f010015;
         /**  Inner padding between the left edge of the Card and children of the CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -102,7 +214,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int contentPaddingLeft=0x7f010007;
+        public static final int contentPaddingLeft=0x7f010012;
         /**  Inner padding between the right edge of the Card and children of the CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -113,7 +225,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int contentPaddingRight=0x7f010008;
+        public static final int contentPaddingRight=0x7f010013;
         /**  Inner padding between the top edge of the Card and children of the CardView. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -124,21 +236,29 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int contentPaddingTop=0x7f010009;
+        public static final int contentPaddingTop=0x7f010014;
     }
     public static final class color {
         /**  Background color for dark CardView. 
          */
-        public static final int cardview_dark_background=0x7f040001;
+        public static final int app_primary_color=0x7f050005;
+        public static final int app_widget_background_color=0x7f050006;
+        /**  Background color for dark CardView. 
+         */
+        public static final int cardview_dark_background=0x7f050001;
         /**  Background color for light CardView. 
          */
-        public static final int cardview_light_background=0x7f040000;
+        public static final int cardview_light_background=0x7f050000;
         /**  Shadow color for the furthest pixels around CardView. 
          */
-        public static final int cardview_shadow_end_color=0x7f040003;
+        public static final int cardview_shadow_end_color=0x7f050003;
         /**  Shadow color for the first pixels around CardView. 
          */
-        public static final int cardview_shadow_start_color=0x7f040002;
+        public static final int cardview_shadow_start_color=0x7f050002;
+        public static final int my_dark_grey=0x7f050009;
+        public static final int my_light_grey1=0x7f050007;
+        public static final int my_light_grey2=0x7f050008;
+        public static final int project_color_preselect=0x7f050004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -148,113 +268,166 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050003;
-        public static final int activity_vertical_margin=0x7f050004;
+        public static final int activity_horizontal_margin=0x7f04000d;
+        public static final int activity_vertical_margin=0x7f04000e;
+        public static final int bar_length=0x7f040000;
+        public static final int bar_pointer_halo_radius=0x7f040001;
+        public static final int bar_pointer_radius=0x7f040002;
+        public static final int bar_thickness=0x7f040003;
         /**  Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
      and the shadow. 
          */
-        public static final int cardview_compat_inset_shadow=0x7f050002;
+        public static final int cardview_compat_inset_shadow=0x7f04000c;
         /**  Elevation value to use for CardViews. Pre-L, it is equal to shadow size. 
          */
-        public static final int cardview_default_elevation=0x7f050001;
+        public static final int cardview_default_elevation=0x7f04000b;
         /**  Default radius for CardView corners. 
          */
-        public static final int cardview_default_radius=0x7f050000;
+        public static final int cardview_default_radius=0x7f04000a;
+        public static final int color_center_halo_radius=0x7f040004;
+        public static final int color_center_radius=0x7f040005;
+        public static final int color_pointer_halo_radius=0x7f040006;
+        public static final int color_pointer_radius=0x7f040007;
+        public static final int color_wheel_radius=0x7f040008;
+        public static final int color_wheel_thickness=0x7f040009;
+        public static final int text_normal=0x7f040010;
+        public static final int text_small=0x7f04000f;
     }
     public static final class drawable {
-        public static final int ic_action_accept=0x7f020000;
-        public static final int ic_action_cancel=0x7f020001;
-        public static final int ic_action_new=0x7f020002;
-        public static final int ic_action_settings=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int project_card_color_bar=0x7f020005;
+        public static final int button_circle=0x7f020000;
+        public static final int color_circle=0x7f020001;
+        public static final int ic_action_about=0x7f020002;
+        public static final int ic_action_accept=0x7f020003;
+        public static final int ic_action_cancel=0x7f020004;
+        public static final int ic_action_discard=0x7f020005;
+        public static final int ic_action_edit=0x7f020006;
+        public static final int ic_action_export=0x7f020007;
+        public static final int ic_action_help=0x7f020008;
+        public static final int ic_action_list=0x7f020009;
+        public static final int ic_action_new=0x7f02000a;
+        public static final int ic_action_overflow=0x7f02000b;
+        public static final int ic_action_settings=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int project_card_color_bar=0x7f02000e;
     }
     public static final class id {
-        public static final int action_add_project=0x7f090028;
-        public static final int action_cancel=0x7f09002a;
-        public static final int action_save=0x7f09002b;
-        public static final int action_settings=0x7f090029;
-        public static final int buttonCome=0x7f09000f;
-        public static final int buttonCustomerBegin=0x7f090000;
-        public static final int buttonCustomerEnd=0x7f090001;
-        public static final int buttonGo=0x7f090010;
-        public static final int buttonOfficeBegin=0x7f090002;
-        public static final int buttonOfficeEnd=0x7f090003;
-        public static final int buttonSettingsSave=0x7f090027;
-        public static final int cardDayLabel=0x7f09000a;
-        public static final int cardDayValue=0x7f09000b;
-        public static final int cardMonthLabel=0x7f09000d;
-        public static final int cardMonthValue=0x7f09000e;
-        public static final int card_view_project=0x7f090004;
-        public static final int inputSettingsButtonBeginCustomer=0x7f090020;
-        public static final int inputSettingsButtonBeginOffice=0x7f090024;
-        public static final int inputSettingsButtonEndCustomer=0x7f090022;
-        public static final int inputSettingsButtonEndOffice=0x7f090026;
-        public static final int labelSettingsButtonBeginCustomer=0x7f09001f;
-        public static final int labelSettingsButtonBeginOffice=0x7f090023;
-        public static final int labelSettingsButtonEndCustomer=0x7f090021;
-        public static final int labelSettingsButtonEndOffice=0x7f090025;
-        public static final int myCardInnerTable=0x7f090008;
-        public static final int projectDetailCustomerColor=0x7f090017;
-        public static final int projectDetailCustomerLabel=0x7f090013;
-        public static final int projectDetailCustomerLabel2=0x7f090015;
-        public static final int projectDetailCustomerText=0x7f090014;
-        public static final int projectDetailProjectColor=0x7f09001d;
-        public static final int projectDetailProjectLabel=0x7f090019;
-        public static final int projectDetailProjectLabel2=0x7f09001b;
-        public static final int projectDetailProjectText=0x7f09001a;
-        public static final int projectDetailTable=0x7f090011;
-        public static final int projectDetailTableRow1=0x7f090012;
-        public static final int projectDetailTableRow2=0x7f090016;
-        public static final int projectDetailTableRow3=0x7f090018;
-        public static final int projectDetailTableRow4=0x7f09001c;
-        public static final int project_card_color_bar=0x7f090005;
-        public static final int project_card_line1=0x7f090006;
-        public static final int project_card_line2=0x7f090007;
-        public static final int project_list_view=0x7f09001e;
-        public static final int tableRow1=0x7f090009;
-        public static final int tableRow2=0x7f09000c;
+        public static final int action_about=0x7f0a0035;
+        public static final int action_cancel=0x7f0a0036;
+        public static final int action_discard=0x7f0a0037;
+        public static final int action_edit_projects=0x7f0a0032;
+        public static final int action_export=0x7f0a0030;
+        public static final int action_help=0x7f0a0034;
+        public static final int action_list_bookings=0x7f0a0031;
+        public static final int action_save=0x7f0a0038;
+        public static final int action_settings=0x7f0a0033;
+        public static final int booking_frame_container=0x7f0a0000;
+        public static final int booking_list_view=0x7f0a0001;
+        public static final int booking_row_color_bar=0x7f0a0002;
+        public static final int booking_row_line1=0x7f0a0003;
+        public static final int booking_row_line2_left=0x7f0a0004;
+        public static final int booking_row_line2_right=0x7f0a0005;
+        public static final int booking_summary_hm=0x7f0a0007;
+        public static final int booking_summary_title=0x7f0a0006;
+        public static final int buttonColorCancel=0x7f0a000b;
+        public static final int buttonColorSelect=0x7f0a000c;
+        public static final int buttonSettingsSave=0x7f0a002d;
+        public static final int button_add_project=0x7f0a0024;
+        public static final int button_edit_project=0x7f0a0014;
+        public static final int card_view_project=0x7f0a0010;
+        public static final int inputSettingsButtonBeginCustomer=0x7f0a0026;
+        public static final int inputSettingsButtonBeginOffice=0x7f0a002a;
+        public static final int inputSettingsButtonEndCustomer=0x7f0a0028;
+        public static final int inputSettingsButtonEndOffice=0x7f0a002c;
+        public static final int labelSettingsButtonBeginCustomer=0x7f0a0025;
+        public static final int labelSettingsButtonBeginOffice=0x7f0a0029;
+        public static final int labelSettingsButtonEndCustomer=0x7f0a0027;
+        public static final int labelSettingsButtonEndOffice=0x7f0a002b;
+        public static final int menu_period_spinner=0x7f0a002e;
+        public static final int menu_project_spinner=0x7f0a002f;
+        public static final int opacitybar=0x7f0a000a;
+        public static final int picker=0x7f0a0008;
+        public static final int projectDetailCustomerColor=0x7f0a001c;
+        public static final int projectDetailCustomerLabel=0x7f0a0018;
+        public static final int projectDetailCustomerLabel2=0x7f0a001a;
+        public static final int projectDetailCustomerText=0x7f0a0019;
+        public static final int projectDetailProjectColor=0x7f0a0022;
+        public static final int projectDetailProjectLabel=0x7f0a001e;
+        public static final int projectDetailProjectLabel2=0x7f0a0020;
+        public static final int projectDetailProjectText=0x7f0a001f;
+        public static final int projectDetailTable=0x7f0a0016;
+        public static final int projectDetailTableRow1=0x7f0a0017;
+        public static final int projectDetailTableRow2=0x7f0a001b;
+        public static final int projectDetailTableRow3=0x7f0a001d;
+        public static final int projectDetailTableRow4=0x7f0a0021;
+        public static final int project_card_color_bar=0x7f0a0011;
+        public static final int project_card_line1=0x7f0a0012;
+        public static final int project_card_line2=0x7f0a0013;
+        public static final int project_card_running_today=0x7f0a0015;
+        public static final int project_list_view=0x7f0a0023;
+        public static final int summary_day=0x7f0a000d;
+        public static final int summary_month=0x7f0a000f;
+        public static final int summary_week=0x7f0a000e;
+        public static final int svbar=0x7f0a0009;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int project_card=0x7f030001;
-        public static final int project_detail=0x7f030002;
-        public static final int project_list=0x7f030003;
-        public static final int rowview=0x7f030004;
-        public static final int settings=0x7f030005;
+        public static final int booking_frame=0x7f030000;
+        public static final int booking_frame_content=0x7f030001;
+        public static final int booking_row=0x7f030002;
+        public static final int booking_summary=0x7f030003;
+        public static final int color_picker=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int project_card=0x7f030006;
+        public static final int project_detail=0x7f030007;
+        public static final int project_list=0x7f030008;
+        public static final int rowview=0x7f030009;
+        public static final int settings=0x7f03000a;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
-        public static final int project=0x7f080001;
+        public static final int booking=0x7f090000;
+        public static final int main=0x7f090001;
+        public static final int project_edit=0x7f090002;
+        public static final int project_new=0x7f090003;
     }
     public static final class string {
-        public static final int action_add_project=0x7f070017;
-        public static final int action_cancel=0x7f070019;
-        public static final int action_save=0x7f07001a;
-        public static final int action_settings=0x7f070018;
-        public static final int app_name=0x7f070000;
-        public static final int buttonProjectCome=0x7f070015;
-        public static final int buttonProjectGo=0x7f070016;
-        public static final int buttonSettingsSave=0x7f070014;
-        public static final int comment_project_added=0x7f070004;
-        public static final int labelButtonBegin=0x7f070009;
-        public static final int labelButtonBegin2=0x7f07000b;
-        public static final int labelButtonEnd=0x7f07000a;
-        public static final int labelButtonEnd2=0x7f07000c;
-        public static final int labelSettingsButtonBeginCustomer=0x7f070010;
-        public static final int labelSettingsButtonBeginOffice=0x7f070012;
-        public static final int labelSettingsButtonEndCustomer=0x7f070011;
-        public static final int labelSettingsButtonEndOffice=0x7f070013;
-        public static final int menuSettings=0x7f07000d;
-        public static final int menuStatistic=0x7f07000e;
-        public static final int project_detail_customer_label=0x7f070005;
-        public static final int project_detail_customer_text=0x7f070006;
-        public static final int project_detail_project_label=0x7f070007;
-        public static final int project_detail_project_text=0x7f070008;
-        public static final int serviceName=0x7f07000f;
-        public static final int title_project_add=0x7f070002;
-        public static final int title_project_change=0x7f070003;
-        public static final int title_project_dashboard=0x7f070001;
+        public static final int action_about=0x7f080022;
+        public static final int action_add_project=0x7f08001d;
+        public static final int action_cancel=0x7f080023;
+        public static final int action_discard=0x7f080025;
+        public static final int action_edit_project=0x7f08001f;
+        public static final int action_edit_projects=0x7f08001e;
+        public static final int action_export=0x7f080026;
+        public static final int action_help=0x7f080021;
+        public static final int action_list_bookings=0x7f08001b;
+        public static final int action_save=0x7f080024;
+        public static final int action_select_color=0x7f08001c;
+        public static final int action_settings=0x7f080020;
+        public static final int app_name=0x7f080000;
+        public static final int buttonColorCancel=0x7f080019;
+        public static final int buttonColorSelect=0x7f08001a;
+        public static final int buttonProjectCome=0x7f080017;
+        public static final int buttonProjectGo=0x7f080018;
+        public static final int buttonSettingsSave=0x7f080016;
+        public static final int comment_project_added=0x7f080006;
+        public static final int labelButtonBegin=0x7f08000b;
+        public static final int labelButtonBegin2=0x7f08000d;
+        public static final int labelButtonEnd=0x7f08000c;
+        public static final int labelButtonEnd2=0x7f08000e;
+        public static final int labelSettingsButtonBeginCustomer=0x7f080012;
+        public static final int labelSettingsButtonBeginOffice=0x7f080014;
+        public static final int labelSettingsButtonEndCustomer=0x7f080013;
+        public static final int labelSettingsButtonEndOffice=0x7f080015;
+        public static final int menuSettings=0x7f08000f;
+        public static final int menuStatistic=0x7f080010;
+        public static final int project_detail_customer_label=0x7f080007;
+        public static final int project_detail_customer_text=0x7f080008;
+        public static final int project_detail_project_label=0x7f080009;
+        public static final int project_detail_project_text=0x7f08000a;
+        public static final int serviceName=0x7f080011;
+        public static final int title_booking_list=0x7f080004;
+        public static final int title_project_add=0x7f080002;
+        public static final int title_project_change=0x7f080003;
+        public static final int title_project_color_picker=0x7f080005;
+        public static final int title_project_dashboard=0x7f080001;
     }
     public static final class style {
         /** 
@@ -282,12 +455,17 @@ containing a value of this type.
         /**  Application theme. 
          */
         public static final int AppTheme=0x7f060004;
+        /**  Makes a "light" equivalent of Theme.Dialog 
+         */
+        public static final int AppTheme_Dialog_Light=0x7f060008;
         public static final int CardView=0x7f060000;
         public static final int CardView_Dark=0x7f060002;
         public static final int CardView_Light=0x7f060001;
         /**  ActionBar styles 
          */
         public static final int MyActionBar=0x7f060005;
+        public static final int booking_row_text_important=0x7f06000a;
+        public static final int booking_row_text_normal=0x7f060009;
         public static final int settingPageEditFont=0x7f060007;
         /** item name="android:textColor">#FFFFFF</item
          */
@@ -325,9 +503,9 @@ containing a value of this type.
            @see #CardView_contentPaddingTop
          */
         public static final int[] CardView = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a
+            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
+            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
+            0x7f010013, 0x7f010014, 0x7f010015
         };
         /**
           <p>
@@ -522,5 +700,225 @@ containing a value of this type.
           @attr name com.gek.and.project4:contentPaddingTop
         */
         public static final int CardView_contentPaddingTop = 9;
+        /** Attributes that can be used with a ColorBars.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ColorBars_bar_length com.gek.and.project4:bar_length}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorBars_bar_orientation_horizontal com.gek.and.project4:bar_orientation_horizontal}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorBars_bar_pointer_halo_radius com.gek.and.project4:bar_pointer_halo_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorBars_bar_pointer_radius com.gek.and.project4:bar_pointer_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorBars_bar_thickness com.gek.and.project4:bar_thickness}</code></td><td></td></tr>
+           </table>
+           @see #ColorBars_bar_length
+           @see #ColorBars_bar_orientation_horizontal
+           @see #ColorBars_bar_pointer_halo_radius
+           @see #ColorBars_bar_pointer_radius
+           @see #ColorBars_bar_thickness
+         */
+        public static final int[] ColorBars = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#bar_length}
+          attribute's value can be found in the {@link #ColorBars} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:bar_length
+        */
+        public static final int ColorBars_bar_length = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#bar_orientation_horizontal}
+          attribute's value can be found in the {@link #ColorBars} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:bar_orientation_horizontal
+        */
+        public static final int ColorBars_bar_orientation_horizontal = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#bar_pointer_halo_radius}
+          attribute's value can be found in the {@link #ColorBars} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:bar_pointer_halo_radius
+        */
+        public static final int ColorBars_bar_pointer_halo_radius = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#bar_pointer_radius}
+          attribute's value can be found in the {@link #ColorBars} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:bar_pointer_radius
+        */
+        public static final int ColorBars_bar_pointer_radius = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#bar_thickness}
+          attribute's value can be found in the {@link #ColorBars} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:bar_thickness
+        */
+        public static final int ColorBars_bar_thickness = 0;
+        /** Attributes that can be used with a ColorPicker.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ColorPicker_color_center_halo_radius com.gek.and.project4:color_center_halo_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPicker_color_center_radius com.gek.and.project4:color_center_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPicker_color_pointer_halo_radius com.gek.and.project4:color_pointer_halo_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPicker_color_pointer_radius com.gek.and.project4:color_pointer_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPicker_color_wheel_radius com.gek.and.project4:color_wheel_radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #ColorPicker_color_wheel_thickness com.gek.and.project4:color_wheel_thickness}</code></td><td></td></tr>
+           </table>
+           @see #ColorPicker_color_center_halo_radius
+           @see #ColorPicker_color_center_radius
+           @see #ColorPicker_color_pointer_halo_radius
+           @see #ColorPicker_color_pointer_radius
+           @see #ColorPicker_color_wheel_radius
+           @see #ColorPicker_color_wheel_thickness
+         */
+        public static final int[] ColorPicker = {
+            0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008,
+            0x7f010009, 0x7f01000a
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_center_halo_radius}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_center_halo_radius
+        */
+        public static final int ColorPicker_color_center_halo_radius = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_center_radius}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_center_radius
+        */
+        public static final int ColorPicker_color_center_radius = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_pointer_halo_radius}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_pointer_halo_radius
+        */
+        public static final int ColorPicker_color_pointer_halo_radius = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_pointer_radius}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_pointer_radius
+        */
+        public static final int ColorPicker_color_pointer_radius = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_wheel_radius}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_wheel_radius
+        */
+        public static final int ColorPicker_color_wheel_radius = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.gek.and.project4.R.attr#color_wheel_thickness}
+          attribute's value can be found in the {@link #ColorPicker} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gek.and.project4:color_wheel_thickness
+        */
+        public static final int ColorPicker_color_wheel_thickness = 1;
     };
 }

@@ -4,6 +4,10 @@
           android:icon="@drawable/ic_action_cancel"
           android:title="@string/action_cancel" 
           android:showAsAction="always"/>
+    <item android:id="@+id/action_discard"
+          android:icon="@drawable/ic_action_discard"
+          android:title="@string/action_discard" 
+          android:showAsAction="always"/>
     <item android:id="@+id/action_save"
           android:icon="@drawable/ic_action_accept"
           android:title="@string/action_save" 

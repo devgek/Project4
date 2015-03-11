@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:padding="10dp">
 
     <TableLayout
         android:id="@+id/projectDetailTable"
@@ -27,8 +28,7 @@
                 android:id="@+id/projectDetailCustomerLabel2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:text="x" />
+                 />
         </TableRow>
 
         <TableRow
@@ -51,28 +51,27 @@
                 android:id="@+id/projectDetailCustomerColor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                 android:text="yyyyyyyy" />
+                 />
         </TableRow>
-                <TableRow
+
+        <TableRow
             android:id="@+id/projectDetailTableRow3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-		    <TextView
-		        android:id="@+id/projectDetailProjectLabel"
-		        android:layout_width="0dp"
-		        android:layout_height="wrap_content"
-		        android:layout_weight="0.6"
-		        android:labelFor="@+id/projectDetailProjectText"
-		        android:text="@string/project_detail_project_label" />
-		
-		    <TextView
-		        android:id="@+id/projectDetailProjectLabel2"
-		        android:layout_width="0dp"
-		        android:layout_height="wrap_content"
-		        android:layout_weight="0.4"
-		        android:text="x" />
+            <TextView
+                android:id="@+id/projectDetailProjectLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:labelFor="@+id/projectDetailProjectText"
+                android:text="@string/project_detail_project_label" />
+
+            <TextView
+                android:id="@+id/projectDetailProjectLabel2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                 />
         </TableRow>
 
         <TableRow
@@ -80,25 +79,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-		    <EditText
-		        android:id="@+id/projectDetailProjectText"
-		        android:layout_width="0dp"
-		        android:layout_height="wrap_content"
-		        android:layout_weight="0.6"
-		        android:inputType="text"
-		        android:text="@string/project_detail_project_text" >
-		
-		    </EditText>
-		    
-  		    <TextView
-		        android:id="@+id/projectDetailProjectColor"
-		        android:layout_width="0dp"
-		        android:layout_height="wrap_content"
-		        android:layout_weight="0.4"
-			    android:text="yyyyyyyy" />
-		
-		    </TableRow>
-        
+            <EditText
+                android:id="@+id/projectDetailProjectText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:inputType="text"
+                android:text="@string/project_detail_project_text" >
+            </EditText>
+
+            <ImageButton
+                android:id="@+id/projectDetailProjectColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/color_circle"
+                android:contentDescription="@string/action_select_color" 
+                android:layout_marginLeft="10dp"
+                 />
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

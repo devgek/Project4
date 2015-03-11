@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    card_view:cardCornerRadius="4dp" 
-    >
+    card_view:cardCornerRadius="0dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" 
-        android:padding="10dp">
+        android:orientation="horizontal"
+        android:paddingLeft="0dp"
+        android:paddingRight="10dp" >
 
         <ImageView
             android:id="@+id/project_card_color_bar"
@@ -21,90 +21,47 @@
             android:background="@drawable/project_card_color_bar" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical" 
-            android:paddingLeft="10dp">
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:paddingLeft="10dp" >
 
             <TextView
                 android:id="@+id/project_card_line1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" 
-                android:textColor="@android:color/primary_text_light"/>
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/primary_text_light" />
 
             <TextView
                 android:id="@+id/project_card_line2"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/secondary_text_light" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/button_edit_project"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" 
-                android:textColor="@android:color/secondary_text_light"/>
+                android:layout_gravity="right"
+                android:contentDescription="@string/action_edit_project"
+                android:src="@drawable/ic_action_overflow" 
+                android:background="@android:color/transparent"/>
 
-            <TableLayout
-                android:id="@+id/myCardInnerTable"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/project_card_running_today"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                >
-
-                <TableRow
-                    android:id="@+id/tableRow1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/cardDayLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tag:" />
-
-                    <TextView
-                        android:id="@+id/cardDayValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="4,37" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/cardMonthLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Monat:" />
-
-                    <TextView
-                        android:id="@+id/cardMonthValue"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="60,5" />
-                </TableRow>
-            </TableLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" 
-                style="?android:attr/buttonBarStyle">
-
-                <Button
-                    android:id="@+id/buttonCome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buttonProjectCome" 
-                    style="?android:attr/buttonBarButtonStyle" 
-                    android:textColor="@android:color/holo_orange_dark" 
-                    android:textStyle="italic"/>
-
-                <Button
-                    android:id="@+id/buttonGo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buttonProjectGo" 
-                    style="?android:attr/buttonBarButtonStyle" 
-                    android:textColor="@android:color/primary_text_light" 
-                    android:textStyle="italic"/>
-            </LinearLayout>
+                android:textColor="@color/project_color_preselect"
+                android:textSize="@dimen/text_normal" >
+            </TextView>
         </LinearLayout>
     </LinearLayout>
 

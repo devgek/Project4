@@ -4,7 +4,7 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -32,5 +32,17 @@
 	</style>   
 	<style name="settingPageEditFont">
 	</style>   
-    
+ 
+	    <!-- Makes a "light" equivalent of Theme.Dialog -->
+    <style name="AppTheme.Dialog.Light" parent="@android:style/Theme.Dialog">
+        <item name="@android:background">@color/my_light_grey1</item>
+        <item name="@android:textColor">@android:color/primary_text_light</item>
+    </style>
+	
+    <style name="booking_row_text_normal">
+        <item name="@android:textColor">@android:color/tertiary_text_light</item>
+    </style>
+    <style name="booking_row_text_important">
+        <item name="@android:textColor">@android:color/primary_text_light</item>
+    </style>
 </resources>

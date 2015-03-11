@@ -6,31 +6,42 @@
     <string name="title_project_dashboard">Projektübersicht</string>
     <string name="title_project_add">Projekt hinzufügen</string>
     <string name="title_project_change">Projekt bearbeiten</string>
-
-    <string name="comment_project_added">Projekt hinzugefügt.</string>
-
-    <string name="project_detail_customer_label">KUNDE</string>
-    <string name="project_detail_customer_text"></string>
-    <string name="project_detail_project_label">PROJEKT</string>
-    <string name="project_detail_project_text"></string>
+    <string name="title_booking_list">Zeitbuchungen</string>
+    <string name="title_project_color_picker">Projektfarbe auswählen</string>
     
+    <string name="comment_project_added">Projekt hinzugefügt.</string>
+    <string name="project_detail_customer_label">KUNDE</string>
+    <string name="project_detail_customer_text">Name Kunde</string>
+    <string name="project_detail_project_label">PROJEKT</string>
+    <string name="project_detail_project_text">Name Projekt</string>
     <string name="labelButtonBegin">Kommen Kunde</string>
-	<string name="labelButtonEnd">Gehen Kunde</string>
+    <string name="labelButtonEnd">Gehen Kunde</string>
     <string name="labelButtonBegin2">Kommen Office</string>
-	<string name="labelButtonEnd2">Gehen Office</string>
-	<string name="menuSettings">Einstellungen</string>
-	<string name="menuStatistic">Statistik</string>
-	<string name="serviceName">com.gek.and.project4service.SERVICE</string>
-	<string name="labelSettingsButtonBeginCustomer">Text auf Button Kommen Kunde</string>
-	<string name="labelSettingsButtonEndCustomer">Text auf Button Gehen Kunde</string>
-	<string name="labelSettingsButtonBeginOffice">Text auf Button Kommen HomeOffice</string>
-	<string name="labelSettingsButtonEndOffice">Text auf Button Gehen HomeOffice</string>
-	<string name="buttonSettingsSave">Speichern</string>
-	<string name="buttonProjectCome">Kommen</string>
-	<string name="buttonProjectGo">Gehen</string>
-	<string name="action_add_project">Neues Projekt</string>
-	<string name="action_settings">Einstellungen</string>
-	<string name="action_cancel">Abbrechen</string>
-	<string name="action_save">Speichern</string>
-					
+    <string name="labelButtonEnd2">Gehen Office</string>
+    <string name="menuSettings">Einstellungen</string>
+    <string name="menuStatistic">Statistik</string>
+    <string name="serviceName">com.gek.and.project4service.SERVICE</string>
+    <string name="labelSettingsButtonBeginCustomer">Text auf Button Kommen Kunde</string>
+    <string name="labelSettingsButtonEndCustomer">Text auf Button Gehen Kunde</string>
+    <string name="labelSettingsButtonBeginOffice">Text auf Button Kommen HomeOffice</string>
+    <string name="labelSettingsButtonEndOffice">Text auf Button Gehen HomeOffice</string>
+    <string name="buttonSettingsSave">Speichern</string>
+    <string name="buttonProjectCome">Kommen</string>
+    <string name="buttonProjectGo">Gehen</string>
+    <string name="buttonColorCancel">Abbrechen</string>
+    <string name="buttonColorSelect">Auswählen</string>
+    
+    <string name="action_list_bookings">Buchungen anzeigen</string>
+    <string name="action_select_color">Farbe auswählen</string>
+    <string name="action_add_project">Neues Projekt</string>
+    <string name="action_edit_projects">Projekte bearbeiten</string>
+    <string name="action_edit_project">Projekt bearbeiten</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_help">Hilfe</string>
+    <string name="action_about">Über</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_save">Speichern</string>
+    <string name="action_discard">Löschen</string>
+    <string name="action_export">Daten exportieren</string>
+    
 </resources>

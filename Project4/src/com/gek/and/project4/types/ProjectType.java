@@ -9,7 +9,8 @@ import com.gek.and.project4.comparator.ProjectTypeComparator;
 public enum ProjectType {
 	AVENUM("VVO", 3, "#99CC00"),
 	PIPE("Line", 1, "#33B5E5"),
-	KAHRER_SOFTWARE("Android Stuff", 2, "#FF4444");
+	KAHRER_SOFTWARE("Android Stuff", 2, "#FF4444"),
+	MIPO_CONSULT("Atlassian Tools", 4, "#FF4444");
 	
 	private String code;
 	private int priority;
