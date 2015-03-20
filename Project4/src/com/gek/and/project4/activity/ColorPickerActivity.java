@@ -15,12 +15,16 @@ import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.ColorPicker.OnColorChangedListener;
 import com.larswerkman.holocolorpicker.OpacityBar;
 import com.larswerkman.holocolorpicker.SVBar;
+import com.larswerkman.holocolorpicker.SaturationBar;
+import com.larswerkman.holocolorpicker.ValueBar;
 
 public class ColorPickerActivity extends Activity implements
 		OnColorChangedListener {
 	private ColorPicker picker;
 	private SVBar svBar;
+	private SaturationBar saturationBar;
 	private OpacityBar opacityBar;
+	private ValueBar valueBar;
 	private Button buttonCancel;
 	private Button buttonSelect;
 
@@ -34,23 +38,32 @@ public class ColorPickerActivity extends Activity implements
 		setTitle(R.string.title_project_color_picker);
 		
 		picker = (ColorPicker) findViewById(R.id.picker);
-		svBar = (SVBar) findViewById(R.id.svbar);
-		opacityBar = (OpacityBar) findViewById(R.id.opacitybar);
+//		svBar = (SVBar) findViewById(R.id.svbar);
+//		opacityBar = (OpacityBar) findViewById(R.id.opacitybar);
+		saturationBar = (SaturationBar) findViewById(R.id.saturationbar);
+//		valueBar = (ValueBar) findViewById(R.id.valuebar);
 		buttonCancel = (Button) findViewById(R.id.buttonColorCancel);
 		buttonSelect = (Button) findViewById(R.id.buttonColorSelect);
 
 		oldColorHex = Project4App.getApp(this).getEditProjectColorString();
 		int oldColor = Color.parseColor(oldColorHex);
+		
 		picker.setColor(oldColor);
 		picker.setOldCenterColor(oldColor);
+		
 //		picker.addSVBar(svBar);
+//		picker.addValueBar(valueBar);
 //		picker.addOpacityBar(opacityBar);
+		picker.addSaturationBar(saturationBar);
+		
 		picker.setOnColorChangedListener(this);
+//		picker.setShowOldCenterColor(false);
 
 		buttonSelect.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				float alpha = picker.getAlpha();
 				String hexColor = ColorUtil.getHex(picker.getColor());
 				Project4App.getApp(ColorPickerActivity.this).setEditProjectColorString(hexColor);
 				
@@ -71,7 +84,7 @@ public class ColorPickerActivity extends Activity implements
 	}
 
 	private void goBackOk() {
-		Intent back = new Intent(getApplicationContext(), ProjectCardActivity.class);
+		Intent back = new Intent(getApplicationContext(), DashboardActivity.class);
 		setResult(RESULT_OK, back);
 		finish();
 	}

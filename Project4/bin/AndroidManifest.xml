@@ -13,7 +13,7 @@
     <application
         android:name="com.gek.and.project4.app.Project4App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher_clock"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service
@@ -25,7 +25,7 @@
         </service>
 
         <activity
-            android:name=".activity.ProjectCardActivity"
+            android:name=".activity.DashboardActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +62,8 @@
         <activity
             android:name="com.gek.and.project4.activity.ProjectDetailActivity"
             android:parentActivityName="com.gek.and.project4.activity.MainActivity" />
-        <activity android:name="com.gek.and.project4.activity.BookingListActivity" />
+        <activity android:name="com.gek.and.project4.activity.BookingListActivity" 
+            android:parentActivityName="com.gek.and.project4.activity.MainActivity"/>
         <activity android:name="com.gek.and.project4.activity.ColorPickerActivity" android:theme="@style/AppTheme.Dialog.Light"/>
         </application>
 

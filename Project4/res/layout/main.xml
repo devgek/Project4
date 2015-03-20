@@ -4,66 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/app_widget_background_color"
-        android:padding="10dp" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HEUTE"
-                android:textColor="@android:color/tertiary_text_light"
-                android:textSize="@dimen/text_small" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/summary_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/project_color_preselect"
-                android:textSize="@dimen/text_normal" >
-            </TextView>
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WOCHE"
-                android:textColor="@android:color/tertiary_text_light"
-                android:textSize="@dimen/text_small" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/summary_week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/project_color_preselect"
-                android:textSize="@dimen/text_normal" >
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MONAT"
-                android:textColor="@android:color/tertiary_text_light"
-                android:textSize="@dimen/text_small" >
-            </TextView>
-
-            <TextView
-                android:id="@+id/summary_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/project_color_preselect"
-                android:textSize="@dimen/text_normal" >
-            </TextView>
-            </LinearLayout>
-    </RelativeLayout>
+    <include layout="@layout/dashboard_summary" />
 
     <include layout="@layout/project_list" />
 

@@ -17,9 +17,31 @@
 
 <resources>
 
-    <color name="project_color_preselect">#7FABF3</color>
+    <!--color name="project_color_preselect">#7FABF3</color-->
+    <color name="project_color_preselect">#FFFFFF</color>
     <!-- Background color for dark CardView. -->
-    <color name="app_primary_color">#f57c00</color>
+    <!-- orange700 -->
+    <!--color name="app_primary_color">#f57c00</color-->
+    <!-- orange500, limeA200, limeA100 -->
+    <!--
+    <color name="app_primary_color">#ff9800</color>
+    <color name="app_accent_color">#eeff41</color>
+    <color name="app_accent_lighter_color">#f4ff81</color>
+    -->
+
+    <!-- teal500 -->
+    <!--color name="app_primary_color">#009688</color-->
+    <!-- teal50, teal700, limeA200, limeA100 -->
+    <!--color name="app_primary_color">#e0f2f1</color-->
+    <!-- bluegrey400 -->
+    <color name="app_primary_color">#78909C</color>
+    <color name="app_primary_darker_color">#00bfa5</color>
+    <!-- bluegrey300 -->
+    <color name="app_accent_color">#90a4ae</color>
+    <!-- bluegrey100 -->
+    <color name="app_accent_lighter_color">#CFD8DC</color>
+    
+    <color name="app_text_important_color">@android:color/primary_text_light</color>
     <color name="app_widget_background_color">#FFFFFF</color>
     <color name="my_light_grey1">#D3D3D3</color>
     <color name="my_light_grey2">#BDBDBD</color>

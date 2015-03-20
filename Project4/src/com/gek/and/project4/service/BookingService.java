@@ -31,7 +31,7 @@ public class BookingService {
 		}
 		
 		if (lastOpenBooking == null || !lastOpenBooking.getProjectId().equals(projectId)) {
-			bookStart(projectId);
+			Booking newBooking = bookStart(projectId);
 			bookedStart = true;
 		}
 		return bookedStart;
@@ -140,26 +140,26 @@ public class BookingService {
 		return qb.list();
 	}
 	
-	private void bookStart(long projectId) {
+	public Booking bookStart(long projectId) {
 		Booking start = new Booking();
 		start.setProjectId(projectId);
 		start.setFrom(new Date());
-		long inserted = this.bookingDao.insert(start);
-		if (inserted > 0) {
+		long bookingId = this.bookingDao.insert(start);
+		if (bookingId > 0) {
 			Log.i(TAG, "Project started at:" + start.getFrom());
+			return this.bookingDao.load(bookingId);
+		}
+		else {
+			return null;
 		}
 	}
 
-	private void bookStop(Booking lastOpenBooking) {
+	public Booking bookStop(Booking lastOpenBooking) {
 		lastOpenBooking.setTo(new Date());
-		lastOpenBooking.setMinutes(getMinutes(lastOpenBooking.getFrom(), lastOpenBooking.getTo()));
+		lastOpenBooking.setMinutes(DateUtil.getMinutes(lastOpenBooking.getFrom(), lastOpenBooking.getTo()));
 		this.bookingDao.update(lastOpenBooking);
 		Log.i(TAG, "Project stopped at:" + lastOpenBooking.getTo());
-	}
-
-	private Integer getMinutes(Date from, Date to) {
-		long millis = to.getTime() - from.getTime();
-		return Integer.valueOf((int)millis / 1000 / 60);
+		return lastOpenBooking;
 	}
 
 }

@@ -10,41 +10,35 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <com.larswerkman.holocolorpicker.SVBar
-        android:id="@+id/svbar"
-        android:layout_width="322dp"
-        android:layout_height="112dp"
-        android:layout_gravity="center"
-        android:layout_margin="8dip" />
-
-    <com.larswerkman.holocolorpicker.OpacityBar
-        android:id="@+id/opacitybar"
+    <com.larswerkman.holocolorpicker.SaturationBar
+        android:id="@+id/saturationbar"
         android:layout_width="322dp"
         android:layout_height="112dp"
         android:layout_gravity="center"
         android:layout_margin="8dip" />
 
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2" 
-        android:orientation="horizontal" 
-        style="?android:attr/buttonBarStyle">
+        android:orientation="horizontal"
+        android:weightSum="2" >
 
         <Button
             android:id="@+id/buttonColorCancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/buttonColorCancel" 
-            style="?android:attr/buttonBarButtonStyle"/>
+            android:text="@string/buttonColorCancel" />
 
         <Button
             android:id="@+id/buttonColorSelect"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/buttonColorSelect" 
-            style="?android:attr/buttonBarButtonStyle"/>
+            android:text="@string/buttonColorSelect" />
     </LinearLayout>
+
 </LinearLayout>

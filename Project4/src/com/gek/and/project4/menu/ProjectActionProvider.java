@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.ActionProvider;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.model.ProjectCard;
 
 public class ProjectActionProvider extends ActionProvider{
+	private static final int SPINNER_WIDTH = 300;
 	private Context context;
 	private int currentSelection = -1;
 	private ProjectActionProviderListener listener;
@@ -58,6 +60,7 @@ public class ProjectActionProvider extends ActionProvider{
 			public void onNothingSelected(AdapterView<?> parent) {
 			}
 		});
+        spinner.setLayoutParams(new ViewGroup.LayoutParams(SPINNER_WIDTH, ViewGroup.LayoutParams.WRAP_CONTENT));
         return spinner;
 	}
 

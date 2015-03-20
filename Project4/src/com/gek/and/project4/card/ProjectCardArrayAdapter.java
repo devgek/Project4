@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.gek.and.project4.R;
 import com.gek.and.project4.TimeLogViewer;
-import com.gek.and.project4.activity.ProjectCardActivity;
+import com.gek.and.project4.activity.DashboardActivity;
 import com.gek.and.project4.entity.Project;
 import com.gek.and.project4.model.ProjectCard;
 import com.gek.and.project4.util.ActivityUtil;
@@ -29,7 +29,7 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 		ProjectCard currentCard;
 	}
 
-	private ProjectCardActivity projectCardActivity;
+	private DashboardActivity projectCardActivity;
 	
 	public ProjectCardArrayAdapter(Context context, int resource) {
 		super(context, resource);
@@ -56,8 +56,6 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 			handleLongClick(row);
 			handleClick(row);
 			
-			viewHolder.currentCard = card;
-			
 			row.setTag(viewHolder);
 		} else {
 			viewHolder = (CardViewHolder) row.getTag();
@@ -69,6 +67,7 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 		viewHolder.runningNow.setText(card.getRunningNowString());
 		viewHolder.colorBar.setBackgroundColor(Color.parseColor(card.getProject().getColor()));
 		viewHolder.editProject.setTag(card.getProject());
+		viewHolder.currentCard = card;
 
 		return row;
 	}
@@ -112,11 +111,11 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 		return super.getItem(position);
 	}
 
-	public ProjectCardActivity getProjectCardActivity() {
+	public DashboardActivity getProjectCardActivity() {
 		return projectCardActivity;
 	}
 
-	public void setProjectCardActivity(ProjectCardActivity projectCardActivity) {
+	public void setProjectCardActivity(DashboardActivity projectCardActivity) {
 		this.projectCardActivity = projectCardActivity;
 	}
 

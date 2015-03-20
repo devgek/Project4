@@ -11,6 +11,7 @@ import com.gek.and.project4.dao.DaoMaster;
 import com.gek.and.project4.dao.DaoMaster.DevOpenHelper;
 import com.gek.and.project4.dao.DaoSession;
 import com.gek.and.project4.dao.ProjectDao;
+import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.model.ProjectCard;
 import com.gek.and.project4.service.BookingService;
 import com.gek.and.project4.service.ProjectService;
@@ -26,6 +27,7 @@ public class Project4App extends Application {
     private List<ProjectCard> projectCardList;
     private Summary summary = new Summary();
     private String editProjectColorString;
+    private List<Booking> lastBookingList;
 
 	@Override
 	public void onCreate() {
@@ -84,6 +86,14 @@ public class Project4App extends Application {
 
 	public void setEditProjectColorString(String editProjectColorString) {
 		this.editProjectColorString = editProjectColorString;
+	}
+
+	public List<Booking> getLastBookingList() {
+		return lastBookingList;
+	}
+
+	public void setLastBookingList(List<Booking> lastBookingList) {
+		this.lastBookingList = lastBookingList;
 	}
 
 }

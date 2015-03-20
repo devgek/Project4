@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.8"
             android:orientation="vertical"
-            android:paddingLeft="10dp" >
+            android:paddingLeft="10dp" 
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/project_card_line1"
@@ -59,7 +60,7 @@
                 android:id="@+id/project_card_running_today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/project_color_preselect"
+                android:textColor="@color/app_text_important_color"
                 android:textSize="@dimen/text_normal" >
             </TextView>
         </LinearLayout>

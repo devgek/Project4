@@ -21,16 +21,16 @@ public final class R {
 		public static final int color_wheel_thickness = 0x7f010006;
 	}
 	public static final class dimen {
-		public static final int bar_length = 0x7f040000;
-		public static final int bar_pointer_halo_radius = 0x7f040001;
-		public static final int bar_pointer_radius = 0x7f040002;
-		public static final int bar_thickness = 0x7f040003;
-		public static final int color_center_halo_radius = 0x7f040004;
-		public static final int color_center_radius = 0x7f040005;
-		public static final int color_pointer_halo_radius = 0x7f040006;
-		public static final int color_pointer_radius = 0x7f040007;
-		public static final int color_wheel_radius = 0x7f040008;
-		public static final int color_wheel_thickness = 0x7f040009;
+		public static final int bar_length = 0x7f060000;
+		public static final int bar_pointer_halo_radius = 0x7f060001;
+		public static final int bar_pointer_radius = 0x7f060002;
+		public static final int bar_thickness = 0x7f060003;
+		public static final int color_center_halo_radius = 0x7f060004;
+		public static final int color_center_radius = 0x7f060005;
+		public static final int color_pointer_halo_radius = 0x7f060006;
+		public static final int color_pointer_radius = 0x7f060007;
+		public static final int color_wheel_radius = 0x7f060008;
+		public static final int color_wheel_thickness = 0x7f060009;
 	}
 	public static final class styleable {
 		public static final int[] ColorBars = { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004 };

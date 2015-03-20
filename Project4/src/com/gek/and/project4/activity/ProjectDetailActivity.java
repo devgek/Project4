@@ -191,7 +191,7 @@ public class ProjectDetailActivity extends Activity {
 	}
 	
 	private void goBackWithResult(int result) {
-		Intent back = new Intent(getApplicationContext(), ProjectCardActivity.class);
+		Intent back = new Intent(getApplicationContext(), DashboardActivity.class);
 		setResult(result, back);
 		finish();
 	}

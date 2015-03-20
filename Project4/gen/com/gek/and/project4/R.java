@@ -9,8 +9,8 @@ package com.gek.and.project4;
 
 public final class R {
     public static final class array {
-        public static final int period=0x7f070000;
-        public static final int periodSummaryTitle=0x7f070001;
+        public static final int period=0x7f080000;
+        public static final int periodSummaryTitle=0x7f080001;
     }
     public static final class attr {
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -239,26 +239,49 @@ containing a value of this type.
         public static final int contentPaddingTop=0x7f010014;
     }
     public static final class color {
+        /**  bluegrey300 
+         */
+        public static final int app_accent_color=0x7f070007;
+        /**  bluegrey100 
+         */
+        public static final int app_accent_lighter_color=0x7f070008;
+        /**  Background color for dark CardView. 
+ orange700 
+color name="app_primary_color">#f57c00</color
+ orange500, limeA200, limeA100 
+
+    <color name="app_primary_color">#ff9800</color>
+    <color name="app_accent_color">#eeff41</color>
+    <color name="app_accent_lighter_color">#f4ff81</color>
+    
+ teal500 
+color name="app_primary_color">#009688</color
+ teal50, teal700, limeA200, limeA100 
+color name="app_primary_color">#e0f2f1</color
+ bluegrey400 
+         */
+        public static final int app_primary_color=0x7f070005;
+        public static final int app_primary_darker_color=0x7f070006;
+        public static final int app_text_important_color=0x7f070009;
+        public static final int app_widget_background_color=0x7f07000a;
         /**  Background color for dark CardView. 
          */
-        public static final int app_primary_color=0x7f050005;
-        public static final int app_widget_background_color=0x7f050006;
-        /**  Background color for dark CardView. 
-         */
-        public static final int cardview_dark_background=0x7f050001;
+        public static final int cardview_dark_background=0x7f070001;
         /**  Background color for light CardView. 
          */
-        public static final int cardview_light_background=0x7f050000;
+        public static final int cardview_light_background=0x7f070000;
         /**  Shadow color for the furthest pixels around CardView. 
          */
-        public static final int cardview_shadow_end_color=0x7f050003;
+        public static final int cardview_shadow_end_color=0x7f070003;
         /**  Shadow color for the first pixels around CardView. 
          */
-        public static final int cardview_shadow_start_color=0x7f050002;
-        public static final int my_dark_grey=0x7f050009;
-        public static final int my_light_grey1=0x7f050007;
-        public static final int my_light_grey2=0x7f050008;
-        public static final int project_color_preselect=0x7f050004;
+        public static final int cardview_shadow_start_color=0x7f070002;
+        public static final int my_dark_grey=0x7f07000d;
+        public static final int my_light_grey1=0x7f07000b;
+        public static final int my_light_grey2=0x7f07000c;
+        /** color name="project_color_preselect">#7FABF3</color
+         */
+        public static final int project_color_preselect=0x7f070004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -268,30 +291,30 @@ containing a value of this type.
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f04000d;
-        public static final int activity_vertical_margin=0x7f04000e;
-        public static final int bar_length=0x7f040000;
-        public static final int bar_pointer_halo_radius=0x7f040001;
-        public static final int bar_pointer_radius=0x7f040002;
-        public static final int bar_thickness=0x7f040003;
+        public static final int activity_horizontal_margin=0x7f06000d;
+        public static final int activity_vertical_margin=0x7f06000e;
+        public static final int bar_length=0x7f060000;
+        public static final int bar_pointer_halo_radius=0x7f060001;
+        public static final int bar_pointer_radius=0x7f060002;
+        public static final int bar_thickness=0x7f060003;
         /**  Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
      and the shadow. 
          */
-        public static final int cardview_compat_inset_shadow=0x7f04000c;
+        public static final int cardview_compat_inset_shadow=0x7f06000c;
         /**  Elevation value to use for CardViews. Pre-L, it is equal to shadow size. 
          */
-        public static final int cardview_default_elevation=0x7f04000b;
+        public static final int cardview_default_elevation=0x7f06000b;
         /**  Default radius for CardView corners. 
          */
-        public static final int cardview_default_radius=0x7f04000a;
-        public static final int color_center_halo_radius=0x7f040004;
-        public static final int color_center_radius=0x7f040005;
-        public static final int color_pointer_halo_radius=0x7f040006;
-        public static final int color_pointer_radius=0x7f040007;
-        public static final int color_wheel_radius=0x7f040008;
-        public static final int color_wheel_thickness=0x7f040009;
-        public static final int text_normal=0x7f040010;
-        public static final int text_small=0x7f04000f;
+        public static final int cardview_default_radius=0x7f06000a;
+        public static final int color_center_halo_radius=0x7f060004;
+        public static final int color_center_radius=0x7f060005;
+        public static final int color_pointer_halo_radius=0x7f060006;
+        public static final int color_pointer_radius=0x7f060007;
+        public static final int color_wheel_radius=0x7f060008;
+        public static final int color_wheel_thickness=0x7f060009;
+        public static final int text_normal=0x7f060010;
+        public static final int text_small=0x7f06000f;
     }
     public static final class drawable {
         public static final int button_circle=0x7f020000;
@@ -299,27 +322,29 @@ containing a value of this type.
         public static final int ic_action_about=0x7f020002;
         public static final int ic_action_accept=0x7f020003;
         public static final int ic_action_cancel=0x7f020004;
-        public static final int ic_action_discard=0x7f020005;
-        public static final int ic_action_edit=0x7f020006;
-        public static final int ic_action_export=0x7f020007;
-        public static final int ic_action_help=0x7f020008;
-        public static final int ic_action_list=0x7f020009;
-        public static final int ic_action_new=0x7f02000a;
-        public static final int ic_action_overflow=0x7f02000b;
-        public static final int ic_action_settings=0x7f02000c;
-        public static final int ic_launcher=0x7f02000d;
-        public static final int project_card_color_bar=0x7f02000e;
+        public static final int ic_action_clock=0x7f020005;
+        public static final int ic_action_discard=0x7f020006;
+        public static final int ic_action_edit=0x7f020007;
+        public static final int ic_action_export=0x7f020008;
+        public static final int ic_action_help=0x7f020009;
+        public static final int ic_action_list=0x7f02000a;
+        public static final int ic_action_new=0x7f02000b;
+        public static final int ic_action_overflow=0x7f02000c;
+        public static final int ic_action_settings=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int ic_launcher_clock=0x7f02000f;
+        public static final int project_card_color_bar=0x7f020010;
     }
     public static final class id {
-        public static final int action_about=0x7f0a0035;
-        public static final int action_cancel=0x7f0a0036;
-        public static final int action_discard=0x7f0a0037;
-        public static final int action_edit_projects=0x7f0a0032;
-        public static final int action_export=0x7f0a0030;
-        public static final int action_help=0x7f0a0034;
-        public static final int action_list_bookings=0x7f0a0031;
-        public static final int action_save=0x7f0a0038;
-        public static final int action_settings=0x7f0a0033;
+        public static final int action_about=0x7f0a003d;
+        public static final int action_cancel=0x7f0a003e;
+        public static final int action_discard=0x7f0a003f;
+        public static final int action_edit_projects=0x7f0a003a;
+        public static final int action_export=0x7f0a0038;
+        public static final int action_help=0x7f0a003c;
+        public static final int action_list_bookings=0x7f0a0039;
+        public static final int action_save=0x7f0a0040;
+        public static final int action_settings=0x7f0a003b;
         public static final int booking_frame_container=0x7f0a0000;
         public static final int booking_list_view=0x7f0a0001;
         public static final int booking_row_color_bar=0x7f0a0002;
@@ -328,46 +353,54 @@ containing a value of this type.
         public static final int booking_row_line2_right=0x7f0a0005;
         public static final int booking_summary_hm=0x7f0a0007;
         public static final int booking_summary_title=0x7f0a0006;
-        public static final int buttonColorCancel=0x7f0a000b;
-        public static final int buttonColorSelect=0x7f0a000c;
-        public static final int buttonSettingsSave=0x7f0a002d;
-        public static final int button_add_project=0x7f0a0024;
-        public static final int button_edit_project=0x7f0a0014;
-        public static final int card_view_project=0x7f0a0010;
-        public static final int inputSettingsButtonBeginCustomer=0x7f0a0026;
-        public static final int inputSettingsButtonBeginOffice=0x7f0a002a;
-        public static final int inputSettingsButtonEndCustomer=0x7f0a0028;
-        public static final int inputSettingsButtonEndOffice=0x7f0a002c;
-        public static final int labelSettingsButtonBeginCustomer=0x7f0a0025;
-        public static final int labelSettingsButtonBeginOffice=0x7f0a0029;
-        public static final int labelSettingsButtonEndCustomer=0x7f0a0027;
-        public static final int labelSettingsButtonEndOffice=0x7f0a002b;
-        public static final int menu_period_spinner=0x7f0a002e;
-        public static final int menu_project_spinner=0x7f0a002f;
-        public static final int opacitybar=0x7f0a000a;
+        public static final int buttonColorCancel=0x7f0a000a;
+        public static final int buttonColorSelect=0x7f0a000b;
+        public static final int buttonSettingsSave=0x7f0a0035;
+        public static final int button_add_project=0x7f0a002c;
+        public static final int button_edit_project=0x7f0a001c;
+        public static final int card_view_project=0x7f0a0018;
+        public static final int colorBarMonth=0x7f0a0017;
+        public static final int colorBarToday=0x7f0a0011;
+        public static final int colorBarWeek=0x7f0a0014;
+        public static final int inputSettingsButtonBeginCustomer=0x7f0a002e;
+        public static final int inputSettingsButtonBeginOffice=0x7f0a0032;
+        public static final int inputSettingsButtonEndCustomer=0x7f0a0030;
+        public static final int inputSettingsButtonEndOffice=0x7f0a0034;
+        public static final int labelSettingsButtonBeginCustomer=0x7f0a002d;
+        public static final int labelSettingsButtonBeginOffice=0x7f0a0031;
+        public static final int labelSettingsButtonEndCustomer=0x7f0a002f;
+        public static final int labelSettingsButtonEndOffice=0x7f0a0033;
+        public static final int menu_period_spinner=0x7f0a0036;
+        public static final int menu_project_spinner=0x7f0a0037;
         public static final int picker=0x7f0a0008;
-        public static final int projectDetailCustomerColor=0x7f0a001c;
-        public static final int projectDetailCustomerLabel=0x7f0a0018;
-        public static final int projectDetailCustomerLabel2=0x7f0a001a;
-        public static final int projectDetailCustomerText=0x7f0a0019;
-        public static final int projectDetailProjectColor=0x7f0a0022;
-        public static final int projectDetailProjectLabel=0x7f0a001e;
-        public static final int projectDetailProjectLabel2=0x7f0a0020;
-        public static final int projectDetailProjectText=0x7f0a001f;
-        public static final int projectDetailTable=0x7f0a0016;
-        public static final int projectDetailTableRow1=0x7f0a0017;
-        public static final int projectDetailTableRow2=0x7f0a001b;
-        public static final int projectDetailTableRow3=0x7f0a001d;
-        public static final int projectDetailTableRow4=0x7f0a0021;
-        public static final int project_card_color_bar=0x7f0a0011;
-        public static final int project_card_line1=0x7f0a0012;
-        public static final int project_card_line2=0x7f0a0013;
-        public static final int project_card_running_today=0x7f0a0015;
-        public static final int project_list_view=0x7f0a0023;
-        public static final int summary_day=0x7f0a000d;
-        public static final int summary_month=0x7f0a000f;
-        public static final int summary_week=0x7f0a000e;
-        public static final int svbar=0x7f0a0009;
+        public static final int projectDetailCustomerColor=0x7f0a0024;
+        public static final int projectDetailCustomerLabel=0x7f0a0020;
+        public static final int projectDetailCustomerLabel2=0x7f0a0022;
+        public static final int projectDetailCustomerText=0x7f0a0021;
+        public static final int projectDetailProjectColor=0x7f0a002a;
+        public static final int projectDetailProjectLabel=0x7f0a0026;
+        public static final int projectDetailProjectLabel2=0x7f0a0028;
+        public static final int projectDetailProjectText=0x7f0a0027;
+        public static final int projectDetailTable=0x7f0a001e;
+        public static final int projectDetailTableRow1=0x7f0a001f;
+        public static final int projectDetailTableRow2=0x7f0a0023;
+        public static final int projectDetailTableRow3=0x7f0a0025;
+        public static final int projectDetailTableRow4=0x7f0a0029;
+        public static final int project_card_color_bar=0x7f0a0019;
+        public static final int project_card_line1=0x7f0a001a;
+        public static final int project_card_line2=0x7f0a001b;
+        public static final int project_card_running_today=0x7f0a001d;
+        public static final int project_list_view=0x7f0a002b;
+        public static final int saturationbar=0x7f0a0009;
+        public static final int summaryTableRowMonth=0x7f0a0015;
+        public static final int summaryTableRowToday=0x7f0a000f;
+        public static final int summaryTableRowWeek=0x7f0a0012;
+        public static final int summary_day=0x7f0a000c;
+        public static final int summary_month=0x7f0a000e;
+        public static final int summary_title_month=0x7f0a0016;
+        public static final int summary_title_today=0x7f0a0010;
+        public static final int summary_title_week=0x7f0a0013;
+        public static final int summary_week=0x7f0a000d;
     }
     public static final class layout {
         public static final int booking_frame=0x7f030000;
@@ -375,12 +408,14 @@ containing a value of this type.
         public static final int booking_row=0x7f030002;
         public static final int booking_summary=0x7f030003;
         public static final int color_picker=0x7f030004;
-        public static final int main=0x7f030005;
-        public static final int project_card=0x7f030006;
-        public static final int project_detail=0x7f030007;
-        public static final int project_list=0x7f030008;
-        public static final int rowview=0x7f030009;
-        public static final int settings=0x7f03000a;
+        public static final int dashboard_old=0x7f030005;
+        public static final int dashboard_summary=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int project_card=0x7f030008;
+        public static final int project_detail=0x7f030009;
+        public static final int project_list=0x7f03000a;
+        public static final int rowview=0x7f03000b;
+        public static final int settings=0x7f03000c;
     }
     public static final class menu {
         public static final int booking=0x7f090000;
@@ -389,45 +424,45 @@ containing a value of this type.
         public static final int project_new=0x7f090003;
     }
     public static final class string {
-        public static final int action_about=0x7f080022;
-        public static final int action_add_project=0x7f08001d;
-        public static final int action_cancel=0x7f080023;
-        public static final int action_discard=0x7f080025;
-        public static final int action_edit_project=0x7f08001f;
-        public static final int action_edit_projects=0x7f08001e;
-        public static final int action_export=0x7f080026;
-        public static final int action_help=0x7f080021;
-        public static final int action_list_bookings=0x7f08001b;
-        public static final int action_save=0x7f080024;
-        public static final int action_select_color=0x7f08001c;
-        public static final int action_settings=0x7f080020;
-        public static final int app_name=0x7f080000;
-        public static final int buttonColorCancel=0x7f080019;
-        public static final int buttonColorSelect=0x7f08001a;
-        public static final int buttonProjectCome=0x7f080017;
-        public static final int buttonProjectGo=0x7f080018;
-        public static final int buttonSettingsSave=0x7f080016;
-        public static final int comment_project_added=0x7f080006;
-        public static final int labelButtonBegin=0x7f08000b;
-        public static final int labelButtonBegin2=0x7f08000d;
-        public static final int labelButtonEnd=0x7f08000c;
-        public static final int labelButtonEnd2=0x7f08000e;
-        public static final int labelSettingsButtonBeginCustomer=0x7f080012;
-        public static final int labelSettingsButtonBeginOffice=0x7f080014;
-        public static final int labelSettingsButtonEndCustomer=0x7f080013;
-        public static final int labelSettingsButtonEndOffice=0x7f080015;
-        public static final int menuSettings=0x7f08000f;
-        public static final int menuStatistic=0x7f080010;
-        public static final int project_detail_customer_label=0x7f080007;
-        public static final int project_detail_customer_text=0x7f080008;
-        public static final int project_detail_project_label=0x7f080009;
-        public static final int project_detail_project_text=0x7f08000a;
-        public static final int serviceName=0x7f080011;
-        public static final int title_booking_list=0x7f080004;
-        public static final int title_project_add=0x7f080002;
-        public static final int title_project_change=0x7f080003;
-        public static final int title_project_color_picker=0x7f080005;
-        public static final int title_project_dashboard=0x7f080001;
+        public static final int action_about=0x7f040022;
+        public static final int action_add_project=0x7f04001d;
+        public static final int action_cancel=0x7f040023;
+        public static final int action_discard=0x7f040025;
+        public static final int action_edit_project=0x7f04001f;
+        public static final int action_edit_projects=0x7f04001e;
+        public static final int action_export=0x7f040026;
+        public static final int action_help=0x7f040021;
+        public static final int action_list_bookings=0x7f04001b;
+        public static final int action_save=0x7f040024;
+        public static final int action_select_color=0x7f04001c;
+        public static final int action_settings=0x7f040020;
+        public static final int app_name=0x7f040000;
+        public static final int buttonColorCancel=0x7f040019;
+        public static final int buttonColorSelect=0x7f04001a;
+        public static final int buttonProjectCome=0x7f040017;
+        public static final int buttonProjectGo=0x7f040018;
+        public static final int buttonSettingsSave=0x7f040016;
+        public static final int comment_project_added=0x7f040006;
+        public static final int labelButtonBegin=0x7f04000b;
+        public static final int labelButtonBegin2=0x7f04000d;
+        public static final int labelButtonEnd=0x7f04000c;
+        public static final int labelButtonEnd2=0x7f04000e;
+        public static final int labelSettingsButtonBeginCustomer=0x7f040012;
+        public static final int labelSettingsButtonBeginOffice=0x7f040014;
+        public static final int labelSettingsButtonEndCustomer=0x7f040013;
+        public static final int labelSettingsButtonEndOffice=0x7f040015;
+        public static final int menuSettings=0x7f04000f;
+        public static final int menuStatistic=0x7f040010;
+        public static final int project_detail_customer_label=0x7f040007;
+        public static final int project_detail_customer_text=0x7f040008;
+        public static final int project_detail_project_label=0x7f040009;
+        public static final int project_detail_project_text=0x7f04000a;
+        public static final int serviceName=0x7f040011;
+        public static final int title_booking_list=0x7f040004;
+        public static final int title_project_add=0x7f040002;
+        public static final int title_project_change=0x7f040003;
+        public static final int title_project_color_picker=0x7f040005;
+        public static final int title_project_dashboard=0x7f040001;
     }
     public static final class style {
         /** 
@@ -450,26 +485,50 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060003;
+        public static final int AppBaseTheme=0x7f050000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+item name="android:actionBarStyle">@style/MyActionBar</item
          */
-        public static final int AppTheme=0x7f060004;
+        public static final int AppTheme=0x7f050001;
         /**  Makes a "light" equivalent of Theme.Dialog 
          */
-        public static final int AppTheme_Dialog_Light=0x7f060008;
-        public static final int CardView=0x7f060000;
-        public static final int CardView_Dark=0x7f060002;
-        public static final int CardView_Light=0x7f060001;
+        public static final int AppTheme_Dialog_Light=0x7f050008;
+        public static final int CardView=0x7f050002;
+        public static final int CardView_Dark=0x7f050004;
+        public static final int CardView_Light=0x7f050003;
         /**  ActionBar styles 
          */
-        public static final int MyActionBar=0x7f060005;
-        public static final int booking_row_text_important=0x7f06000a;
-        public static final int booking_row_text_normal=0x7f060009;
-        public static final int settingPageEditFont=0x7f060007;
-        /** item name="android:textColor">#FFFFFF</item
+        public static final int MyActionBar=0x7f050005;
+        public static final int booking_row_text_important=0x7f05000a;
+        public static final int booking_row_text_normal=0x7f050009;
+        public static final int settingPageEditFont=0x7f050007;
+        /**  item name="android:textColor">#FFFFFF</item 
          */
-        public static final int settingPageLabelFont=0x7f060006;
+        public static final int settingPageLabelFont=0x7f050006;
     }
     public static final class styleable {
         /** Attributes that can be used with a CardView.

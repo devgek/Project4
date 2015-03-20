@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Project4</string>
+    <string name="app_name">ProjektZeit</string>
     
-    <string name="title_project_dashboard">Projektübersicht</string>
+    <string name="title_project_dashboard">ProjektZeit</string>
     <string name="title_project_add">Projekt hinzufügen</string>
     <string name="title_project_change">Projekt bearbeiten</string>
     <string name="title_booking_list">Zeitbuchungen</string>
