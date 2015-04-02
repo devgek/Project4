@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/bookingDetailHeadLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" 
+        android:background="@color/app_accent_color" 
+        android:paddingTop="10dp" 
+        android:paddingBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/bookingDetailFromLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/bookingDetailFrom"
+            android:text="@string/booking_detail_from_label" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <EditText
+            android:id="@+id/bookingDetailFrom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_big"
+            android:textSize="@dimen/text_big"
+            android:inputType="none" 
+            android:gravity="center" 
+            android:focusable="false" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <TextView
+            android:id="@+id/bookingDetailToLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/bookingDetailTo"
+            android:text="@string/booking_detail_to_label" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <EditText
+            android:id="@+id/bookingDetailTo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_big"
+            android:textSize="@dimen/text_big"
+            android:inputType="none" 
+            android:gravity="center" 
+            android:focusable="false" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <TextView
+            android:id="@+id/bookingDetailProjectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/bookingDetailProject"
+            android:text="@string/booking_detail_project_label" 
+            android:textColor="@android:color/tertiary_text_light" 
+             />
+
+        <EditText
+            android:id="@+id/bookingDetailProject"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_big"
+            android:inputType="none" 
+            android:focusable="false" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <TextView
+            android:id="@+id/bookingDetailNoteLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/bookingDetailNote"
+            android:text="@string/booking_detail_note_label" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <EditText
+            android:id="@+id/bookingDetailNote"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_big"
+            android:inputType="text" 
+            />
+    </LinearLayout>
+
+</LinearLayout>
