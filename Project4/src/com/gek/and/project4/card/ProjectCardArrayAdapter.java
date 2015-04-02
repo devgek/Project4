@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gek.and.project4.R;
-import com.gek.and.project4.TimeLogViewer;
 import com.gek.and.project4.activity.DashboardActivity;
 import com.gek.and.project4.entity.Project;
 import com.gek.and.project4.model.ProjectCard;
@@ -53,7 +52,6 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 			viewHolder.editProject = (ImageButton) row.findViewById(R.id.button_edit_project);
 			
 			handleEditProject(viewHolder.editProject);
-			handleLongClick(row);
 			handleClick(row);
 			
 			row.setTag(viewHolder);
@@ -83,16 +81,6 @@ public class ProjectCardArrayAdapter extends ArrayAdapter<ProjectCard> {
 		});
 	}
 
-	private void handleLongClick(View row) {
-		row.setOnLongClickListener(new View.OnLongClickListener(){
-		    @Override
-		    public boolean onLongClick(View v) {
-		    	ActivityUtil.startActivity(getContext(), TimeLogViewer.class);
-		    	return true;
-		    }
-		});
-	}
-	
 	private void handleEditProject(ImageButton editProject) {
 		editProject.setOnClickListener(new OnClickListener() {
 			

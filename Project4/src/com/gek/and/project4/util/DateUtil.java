@@ -17,6 +17,7 @@ public class DateUtil {
 	public static final DateFormat dfFileNameWeek = new SimpleDateFormat("w");
 	public static final DateFormat dfFileNameMonth = new SimpleDateFormat("yyyy_MM");
 	public static final DateFormat dfFileNameYear = new SimpleDateFormat("yyyy");
+	public static final DateFormat dfDayFull = new SimpleDateFormat("EEE, d. MMM yyyy");
 
 	public static String getFormattedDateTime(Date d) {
 		return dfDateTime.format(d);
@@ -38,6 +39,10 @@ public class DateUtil {
 	
 	public static String getFormattedDay(Calendar cal) {
 		return dfDay.format(cal.getTime());
+	}
+	
+	public static String getFormattedDayFull(Date day) {
+		return dfDayFull.format(day);
 	}
 	
 	public static String getFormattedWeek(Calendar cal) {

@@ -7,6 +7,7 @@ import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.app.Summary;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.service.BookingService;
+import com.gek.and.project4.util.L;
 
 
 public class TimeBooker extends AsyncTask<Object, Void, Boolean> {
@@ -27,13 +28,19 @@ public class TimeBooker extends AsyncTask<Object, Void, Boolean> {
 
 		if (summary.getRunningNow() != null) {
 			Booking stopped = bookingService.bookStop(summary.getRunningNow());
-			summary.addBooking(stopped);
-			summary.setRunningNow(null);
+			synchronized(summary) {
+				L.d("TimeBooker", "minutes to add to finished " + stopped.getMinutes());
+				summary.setRunningNow(null);
+				summary.addBooking(stopped);
+			}
 		}
 		
 		if (bookStart) {
 			Booking newBooking = bookingService.bookStart(projectId);
-			summary.addBooking(newBooking);
+			synchronized(summary) {
+				summary.addBooking(newBooking);
+				summary.setRunningNow(newBooking);
+			}
 		}
 		
 		return Boolean.valueOf(bookStart);

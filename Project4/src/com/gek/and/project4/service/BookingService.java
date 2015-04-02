@@ -5,22 +5,28 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import android.util.Log;
-
 import com.gek.and.project4.dao.BookingDao;
 import com.gek.and.project4.dao.BookingDao.Properties;
+import com.gek.and.project4.dao.DaoSession;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.types.PeriodType;
 import com.gek.and.project4.util.DateUtil;
+import com.gek.and.project4.util.L;
 
 import de.greenrobot.dao.query.QueryBuilder;
 
 public class BookingService {
 	private static final String TAG = "Project4:BookingService::";
 	private BookingDao bookingDao;
+	private final DaoSession daoSession;
 	
-	public BookingService(BookingDao bookingDao) {
-		this.bookingDao = bookingDao;
+	public BookingService(DaoSession daoSession) {
+		this.daoSession = daoSession;
+		this.bookingDao = daoSession.getBookingDao();
+	}
+	
+	public void updateBooking(Booking booking) {
+		this.bookingDao.update(booking);
 	}
 	
 	public boolean bookNow(long projectId) {
@@ -80,8 +86,8 @@ public class BookingService {
 		cal.set(Calendar.MILLISECOND, 0);
 		cal.set(Calendar.AM_PM, 0);
 		
-		Log.i(TAG, "compare date today: " + cal.toString());
-		Log.i(TAG, "compare date today formatted: " + DateUtil.getFormattedDateTime(cal.getTime()));
+//		L.d(TAG, "compare date today: " + cal.toString());
+//		L.d(TAG, "compare date today formatted: " + DateUtil.getFormattedDateTime(cal.getTime()));
 
 		return getGreaterEqual(cal);
 	}
@@ -95,7 +101,7 @@ public class BookingService {
 		cal.set(Calendar.AM_PM, 0);
 		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 		
-		Log.i(TAG, "compare date week formatted: " + DateUtil.getFormattedDateTime(cal.getTime()));
+//		L.d(TAG, "compare date week formatted: " + DateUtil.getFormattedDateTime(cal.getTime()));
 		return getGreaterEqual(cal);
 	}
 	
@@ -146,7 +152,7 @@ public class BookingService {
 		start.setFrom(new Date());
 		long bookingId = this.bookingDao.insert(start);
 		if (bookingId > 0) {
-			Log.i(TAG, "Project started at:" + start.getFrom());
+			L.d(TAG, "Project started at:" + start.getFrom());
 			return this.bookingDao.load(bookingId);
 		}
 		else {
@@ -158,8 +164,21 @@ public class BookingService {
 		lastOpenBooking.setTo(new Date());
 		lastOpenBooking.setMinutes(DateUtil.getMinutes(lastOpenBooking.getFrom(), lastOpenBooking.getTo()));
 		this.bookingDao.update(lastOpenBooking);
-		Log.i(TAG, "Project stopped at:" + lastOpenBooking.getTo());
+		L.d(TAG, "Project stopped at:" + lastOpenBooking.getTo() + " with minutes: " + lastOpenBooking.getMinutes());
 		return lastOpenBooking;
+	}
+	
+	public boolean deleteBooking(Booking booking) {
+		boolean ok = true;
+		
+		try {
+			this.bookingDao.delete(booking);
+		}
+		catch(Exception e) {
+			ok = false;
+		}
+		
+		return ok;
 	}
 
 }

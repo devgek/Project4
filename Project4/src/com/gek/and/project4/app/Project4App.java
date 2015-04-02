@@ -6,17 +6,20 @@ import android.app.Activity;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.gek.and.geklib.type.AppType;
+import com.gek.and.geklib.util.AboutUtil;
+import com.gek.and.geklib.util.PackageInfoUtil;
 import com.gek.and.project4.dao.BookingDao;
 import com.gek.and.project4.dao.DaoMaster;
-import com.gek.and.project4.dao.DaoMaster.DevOpenHelper;
 import com.gek.and.project4.dao.DaoSession;
 import com.gek.and.project4.dao.ProjectDao;
+import com.gek.and.project4.dao.SelectiveUpdateOpenHelper;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.model.ProjectCard;
 import com.gek.and.project4.service.BookingService;
 import com.gek.and.project4.service.ProjectService;
 
-public class Project4App extends Application {
+public abstract class Project4App extends Application {
     private SQLiteDatabase db;
     private DaoMaster daoMaster;
     private DaoSession daoSession;
@@ -28,19 +31,51 @@ public class Project4App extends Application {
     private Summary summary = new Summary();
     private String editProjectColorString;
     private List<Booking> lastBookingList;
+    private Booking editBooking;
+    protected AppType appType;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		
-        DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "project4-db", null);
+		setAppType();
+		
+//        DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "project4-db", null);
+        SelectiveUpdateOpenHelper helper = new SelectiveUpdateOpenHelper(this, "project4-db", null);
         db = helper.getWritableDatabase();
         daoMaster = new DaoMaster(db);
         daoSession = daoMaster.newSession();
         projectDao = daoSession.getProjectDao();
         bookingDao = daoSession.getBookingDao();
-        projectService = new ProjectService(projectDao);
-        bookingService = new BookingService(bookingDao);
+        projectService = new ProjectService(daoSession);
+        bookingService = new BookingService(daoSession);
+	}
+	
+	protected abstract void setAppType();
+	
+	public String getVersion() {
+		return "Version " + PackageInfoUtil.getVersionName(this);
+	}
+	
+	public String getCopyright() {
+		return "Copyright (c) 2015";
+	}
+	
+	public String getDeveloper() {
+		return "gerald.kahrer[at]gmail.com";
+	}
+	
+	public String getAboutContentAssetName() {
+		return "about_content.html";
+	}
+
+	public String loadHtmlAboutContent() {
+		String content = AboutUtil.readContentFromAsset(getAssets(), getAboutContentAssetName());
+		return content;
+	}
+	
+	public boolean isPro() {
+		return AppType.PRO.equals(this.appType);
 	}
 	
 	public ProjectDao getProjectDao() {
@@ -94,6 +129,14 @@ public class Project4App extends Application {
 
 	public void setLastBookingList(List<Booking> lastBookingList) {
 		this.lastBookingList = lastBookingList;
+	}
+
+	public Booking getEditBooking() {
+		return editBooking;
+	}
+
+	public void setEditBooking(Booking editBooking) {
+		this.editBooking = editBooking;
 	}
 
 }

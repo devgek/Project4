@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import android.app.Notification;
@@ -22,13 +21,16 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gek.and.geklib.view.ColorBar;
 import com.gek.and.geklib.view.ColorBarView;
+import com.gek.and.project4.AppConstants;
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.app.Summary;
 import com.gek.and.project4.async.SummaryLoader;
+import com.gek.and.project4.async.SummaryLoader.SummaryLoaderTarget;
 import com.gek.and.project4.async.TimeBooker;
 import com.gek.and.project4.card.ProjectCardArrayAdapter;
 import com.gek.and.project4.entity.Project;
@@ -36,8 +38,9 @@ import com.gek.and.project4.model.BookedValues;
 import com.gek.and.project4.model.ProjectCard;
 import com.gek.and.project4.service.ProjectService;
 import com.gek.and.project4.util.DateUtil;
+import com.gek.and.project4.util.L;
 
-public class DashboardActivity extends MainActivity {
+public class DashboardActivity extends MainActivity implements SummaryLoaderTarget{
 	private static final String TAG = "DashboardActivity::";
 	
 	private ProjectService projectService;
@@ -75,7 +78,10 @@ public class DashboardActivity extends MainActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		this.tickerThreadFlag = false;
+		if (this.tickerThread != null) {
+			this.tickerThreadFlag = false;
+			this.tickerThread = null;
+		}
 	}
 
 	@Override
@@ -87,8 +93,7 @@ public class DashboardActivity extends MainActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		SummaryLoader summaryLoader = new SummaryLoader();
-		summaryLoader.execute(new Object[] { this });
+		startSummaryLoader();
 
 		setContentView(R.layout.main);
 		mainView = this.findViewById(android.R.id.content);
@@ -129,9 +134,22 @@ public class DashboardActivity extends MainActivity {
 				addProject();
 			}
 		});
+		
+		if (this.tickerThread == null && this.tickerThreadFlag == false) {
+			startRunningBookingTickerThread();
+		}
+	}
+
+	private void startSummaryLoader() {
+		SummaryLoader summaryLoader = new SummaryLoader();
+		summaryLoader.execute(new Object[] { this, this });
 	}
 
 	protected void addProject() {
+		if (!Project4App.getApp(this).isPro() && isProjectLimitReached()) {
+			Toast.makeText(this, "Mehr als " + AppConstants.PROJECT_LIMIT_FREE + " Projekte sind nur in der Pro-Version möglich.", Toast.LENGTH_LONG).show();
+			return;
+		}
 		Intent intent = new Intent(this, ProjectDetailActivity.class);
 		startActivityForResult(intent, 1000);
 	}
@@ -151,8 +169,14 @@ public class DashboardActivity extends MainActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
 			if (requestCode == 1000 || requestCode == 2000) {
-				updateCardAdapter();
-				invalidateMainView();
+				boolean reloadSummary = data.getBooleanExtra("reloadSummary", false);
+				if (reloadSummary) {
+					startSummaryLoader();
+				}
+				else {
+					updateCardAdapter();
+					invalidateMainView();
+				}
 			}
 		}
 	}
@@ -166,14 +190,12 @@ public class DashboardActivity extends MainActivity {
 		updateSummaryFields();
 
 		Summary summary = Project4App.getApp(this).getSummary();
-		if (summary.getRunningNow() != null) {
-			updateRunningProject(summary.getRunningNow().getProjectId());
-			updateCardAdapter();
-		}
+		Long runningProjectId = summary.getRunningNow() != null ? summary.getRunningNow().getProjectId() : null;
+		
+		updateRunningProject(runningProjectId);
+		updateCardAdapter();
 
 		invalidateMainView();
-		
-		startRunningBookingTickerThread();
 	}
 
 	public void onPostTimeBooking(Long projectId, boolean bookedStart) {
@@ -231,10 +253,11 @@ public class DashboardActivity extends MainActivity {
 
 	private void invalidateMainView() {
 		if (mainView != null) {
-			mainView.invalidate();
 			colorBarViewToday.invalidate();
 			colorBarViewWeek.invalidate();
 			colorBarViewMonth.invalidate();
+			projectCardListView.invalidate();
+			mainView.invalidate();
 		}
 	}
 
@@ -270,7 +293,7 @@ public class DashboardActivity extends MainActivity {
 			Project project = Project4App.getApp(this).getProjectService().getProject(projectId);
 			int projectColor;
 			if (project == null) {
-				projectColor = Color.BLACK;
+				projectColor = getResources().getColor(R.color.no_project_color);
 			} else {
 				projectColor = Color.parseColor(project.getColor());
 			}
@@ -304,7 +327,7 @@ public class DashboardActivity extends MainActivity {
 						
 						Summary summary = Project4App.getApp(DashboardActivity.this).getSummary();
 						synchronized(summary) {
-							if (summary.getRunningNow() != null) {
+							if (summary.isLoaded() && summary.getRunningNow() != null) {
 								summary.addBooking(summary.getRunningNow());
 								handler.sendEmptyMessage(1);
 							}
@@ -314,14 +337,20 @@ public class DashboardActivity extends MainActivity {
 						// TODO Auto-generated catch block
 					}
 				}
-				Log.i(TAG, "bookingTicker::run finished!");
+				L.d(TAG, "bookingTicker::run finished " + Thread.currentThread().getId());
 			}
 			
 		};
 		
 		tickerThreadFlag = true;
 		tickerThread.setName("bookingTicker");
+		L.d(TAG, "bookingTicker::start " + tickerThread.getId());
 		tickerThread.start();
 	}
+	
+	private boolean isProjectLimitReached() {
+		return Project4App.getApp(this).getProjectCardList().size() >= AppConstants.PROJECT_LIMIT_FREE;
+	}
+
 
 }

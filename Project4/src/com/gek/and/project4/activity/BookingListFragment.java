@@ -5,6 +5,8 @@ import java.util.List;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,9 @@ import com.gek.and.project4.util.SummaryUtil;
 public class BookingListFragment extends Fragment{
 	private int periodPosition;
 	private int projectPosition;
+	TextView textViewSummaryTitle;
+	TextView textViewSummary;
+	ListView lvBookingList;
 	
 	public BookingListFragment(int periodPosition, int projectPosition) {
 		super();
@@ -35,27 +40,33 @@ public class BookingListFragment extends Fragment{
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View contentView = inflater.inflate(R.layout.booking_frame_content, container,  false);
 		
-		TextView textViewSummaryTitle = (TextView) contentView.findViewById(R.id.booking_summary_title);
-		TextView textViewSummary = (TextView) contentView.findViewById(R.id.booking_summary_hm);
-	    ListView v = (ListView) contentView.findViewById(R.id.booking_list_view);
+		this.textViewSummaryTitle = (TextView) contentView.findViewById(R.id.booking_summary_title);
+		this.textViewSummary = (TextView) contentView.findViewById(R.id.booking_summary_hm);
+	    this.lvBookingList = (ListView) contentView.findViewById(R.id.booking_list_view);
 
 	    textViewSummaryTitle.setText(getSummaryText(this.periodPosition));
 	    
-		List<Booking> bookingList = getData();
-		int minutes = getMinutes(bookingList);
-		
-		Project4App.getApp(getActivity()).setLastBookingList(bookingList);
-		
-		textViewSummary.setText(DateUtil.getFormattedHM(minutes));
-		
-		BookingListArrayAdapter bookingListAdapter = new BookingListArrayAdapter(R.layout.booking_row, getActivity());
-		bookingListAdapter.addAll(bookingList);
-
-		v.setAdapter(bookingListAdapter);
 
 	    return contentView;
 	}
 	
+	@Override
+	public void onResume() {
+		super.onResume();
+		
+		List<Booking> bookingList = getData();
+		int minutes = getMinutes(bookingList);
+		
+		this.textViewSummary.setText(DateUtil.getFormattedHM(minutes));
+		
+		BookingListArrayAdapter bookingListAdapter = new BookingListArrayAdapter(R.layout.booking_row, getActivity());
+		bookingListAdapter.addAll(bookingList);
+		boolean showNote = PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("setting_bookings_showNote", false);
+		bookingListAdapter.setVisibilityLine3(showNote ? View.VISIBLE : View.GONE);
+
+		this.lvBookingList.setAdapter(bookingListAdapter);
+	} 
+
 	private int getMinutes(List<Booking> bookingList) {
 		int minutes = 0;
 		
@@ -93,8 +104,14 @@ public class BookingListFragment extends Fragment{
 	}
 
 	private List<Booking> getData() {
-		BookingService bookingService = Project4App.getApp(getActivity()).getBookingService();
-		return bookingService.getFiltered(PeriodType.fromInt(this.periodPosition), getProjectIdFromPosition(this.projectPosition));
+		List<Booking> bookingList = Project4App.getApp(getActivity()).getLastBookingList();
+		if (bookingList == null) {
+			BookingService bookingService = Project4App.getApp(getActivity()).getBookingService();
+			bookingList =  bookingService.getFiltered(PeriodType.fromInt(this.periodPosition), getProjectIdFromPosition(this.projectPosition));
+			Project4App.getApp(getActivity()).setLastBookingList(bookingList);
+		}
+		
+		return bookingList;
 	}
 }
 

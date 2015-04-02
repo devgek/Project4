@@ -34,7 +34,7 @@ public class ExportGenerator extends AsyncTask<Object, Void, Boolean> {
 			FileWriter fw = new FileWriter(exportFile, false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			
-			bw.write("KUNDE;PROJEKT;START;ENDE;MINUTEN");
+			bw.write("KUNDE;PROJEKT;START;ENDE;MINUTEN;NOTIZ");
 			bw.newLine();
 			
 			ProjectService projectService = Project4App.getApp(parentActivity).getProjectService();
@@ -51,6 +51,8 @@ public class ExportGenerator extends AsyncTask<Object, Void, Boolean> {
 				buf.append(booking.getTo() != null ? DateUtil.getFormattedDate(booking.getTo()) : "");
 				buf.append(";");
 				buf.append(booking.getMinutes() != null ? DateUtil.getFormattedHM(booking.getMinutes()) : "");
+				buf.append(";");
+				buf.append(booking.getNote() != null ? booking.getNote() : "");
 
 				bw.write(buf.toString());
 				bw.newLine();

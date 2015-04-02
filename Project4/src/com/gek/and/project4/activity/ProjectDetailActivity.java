@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
+import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.entity.Project;
 import com.gek.and.project4.model.ProjectCard;
 
@@ -46,20 +47,19 @@ public class ProjectDetailActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle presses on the action bar items
-	    switch (item.getItemId()) {
-	        case R.id.action_cancel:
-	            cancel();
-	            return true;
-	        case R.id.action_discard:
-	            confirmDeleteProject();
-	            return true;
-	        case R.id.action_save:
-	            saveProject();
-	            return true;
-	        default:
-	            return super.onOptionsItemSelected(item);
-	    }
+		int itemId = item.getItemId();
+		if (itemId == R.id.action_cancel) {
+			cancel();
+			return true;
+		} else if (itemId == R.id.action_discard) {
+			confirmDeleteProject();
+			return true;
+		} else if (itemId == R.id.action_save) {
+			saveProject();
+			return true;
+		} else {
+			return super.onOptionsItemSelected(item);
+		}
 	}
 	
 	@Override
@@ -167,11 +167,11 @@ public class ProjectDetailActivity extends Activity {
 			projectCardList.add(pCard);
 		}
 		
-		goBackWithResult(RESULT_OK);
+		goBackWithResult(RESULT_OK, false);
 	}
 	
 	private void deleteProject() {
-		boolean deleted = Project4App.getApp(this).getProjectService().deleteProject(projectId);
+		boolean deleted = Project4App.getApp(this).getProjectService().deleteProject(this.projectId);
 		if (!deleted) {
 			Toast.makeText(this, "Projekt konnte nicht gelöscht werden.", Toast.LENGTH_SHORT).show();
 		}
@@ -186,12 +186,18 @@ public class ProjectDetailActivity extends Activity {
 			}
 			
 			Project4App.getApp(this).setProjectCardList(projectCardList);
-			goBackWithResult(RESULT_OK);
+			goBackWithResult(RESULT_OK, true);
 		}
 	}
 	
-	private void goBackWithResult(int result) {
+	private boolean isRunningProject() {
+		Booking runningBooking = Project4App.getApp(this).getSummary().getRunningNow();
+		return runningBooking != null && runningBooking.getProjectId().equals(this.projectId);
+	}
+
+	private void goBackWithResult(int result, boolean reloadSummary) {
 		Intent back = new Intent(getApplicationContext(), DashboardActivity.class);
+		back.putExtra("reloadSummary", reloadSummary);
 		setResult(result, back);
 		finish();
 	}
@@ -201,6 +207,11 @@ public class ProjectDetailActivity extends Activity {
 	}
 	
 	public void confirmDeleteProject() {
+		if (isRunningProject()) {
+			Toast.makeText(this, "Das gerade laufende Projekt kann nicht gelöscht werden.", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		AlertDialog.Builder ad = new AlertDialog.Builder(this);
 		ad.setTitle("Projekt löschen");
 		ad.setMessage("Das Projekt und alle seine Zeitbuchungen werden gelöscht.");

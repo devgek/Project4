@@ -19,7 +19,7 @@ public class BookedValues {
 		this.finished += finished;
 	}
 	
-	public void addRunning(int running) {
-		this.running += running;
+	public void setRunning(int running) {
+		this.running = running;
 	}
 }

@@ -25,12 +25,14 @@ public class Summary {
 	private Map<Long, BookedValues> projectsToday;
 	private Map<Long, BookedValues> projectsWeek;
 	private Map<Long, BookedValues> projectsMonth;
+	private boolean loaded;
 	
 	public Summary() {
 		init();
 	}
 	
 	public void init() {
+		this.loaded = false;
 		this.initDate = Calendar.getInstance();
 		this.initYear = initDate.get(Calendar.YEAR);
 		this.initMonth = initDate.get(Calendar.MONTH);
@@ -53,6 +55,8 @@ public class Summary {
 		for (Booking booking : bookings) {
 			addBooking(booking);
 		}
+		
+		this.loaded = true;
 	}
 	
 	public void addBooking(Booking booking) {
@@ -126,6 +130,7 @@ public class Summary {
 
 	public void setRunningNow(Booking booking) {
 		this.runningNow = booking;
+		this.runningMinutes = 0;
 	}
 	
 	public Map<Long, BookedValues> getProjectsToday() {
@@ -142,6 +147,10 @@ public class Summary {
 
 	public Calendar getInitDate() {
 		return initDate;
+	}
+
+	public boolean isLoaded() {
+		return loaded;
 	}
 
 	private boolean isYear(Calendar cal) {
@@ -172,7 +181,7 @@ public class Summary {
 		}
 		
 		values.addFinished(finished);
-		values.addRunning(running);
+		values.setRunning(running);
 	}
 	
 

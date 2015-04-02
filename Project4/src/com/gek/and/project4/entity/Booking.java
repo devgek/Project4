@@ -20,6 +20,7 @@ public class Booking {
     private java.util.Date from;
     private java.util.Date to;
     private Integer minutes;
+    private String note;
 
     /** Used to resolve relations */
     private transient DaoSession daoSession;
@@ -38,12 +39,13 @@ public class Booking {
         this.id = id;
     }
 
-    public Booking(Long id, Long projectId, java.util.Date from, java.util.Date to, Integer minutes) {
+    public Booking(Long id, Long projectId, java.util.Date from, java.util.Date to, Integer minutes, String note) {
         this.id = id;
         this.projectId = projectId;
         this.from = from;
         this.to = to;
         this.minutes = minutes;
+        this.note = note;
     }
 
     /** called by internal mechanisms, do not call yourself. */
@@ -92,6 +94,14 @@ public class Booking {
 
     public void setMinutes(Integer minutes) {
         this.minutes = minutes;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     /** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */

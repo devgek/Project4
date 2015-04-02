@@ -1,6 +1,6 @@
 package com.gek.and.project4.activity;
 
-import java.util.Map;
+import java.lang.reflect.Field;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewConfiguration;
 
 import com.gek.and.project4.R;
-import com.gek.and.project4.SettingsActivity;
-import com.gek.and.project4.util.ActivityUtil;
+import com.gek.and.project4.app.Project4App;
 
 public class MainActivity extends Activity {
-	private Map<String, ?> settings;
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
@@ -26,25 +24,19 @@ public class MainActivity extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle presses on the action bar items
-		switch (item.getItemId()) {
-		case R.id.action_list_bookings:
+		int itemId = item.getItemId();
+		if (itemId == R.id.action_list_bookings) {
 			listBookings();
 			return true;
-		case R.id.action_settings:
+		} else if (itemId == R.id.action_settings) {
 			changeSettings();
 			return true;
-		case R.id.action_help:
-			showHelp();
-			return true;
-		case R.id.action_about:
+		} else if (itemId == R.id.action_about) {
 			showAbout();
 			return true;
-		default:
+		} else {
 			return super.onOptionsItemSelected(item);
 		}
-		// startActivity(item.getIntent());
-		// return true;
 	}
 
 	private void listBookings() {
@@ -54,34 +46,46 @@ public class MainActivity extends Activity {
 	}
 
 	private void showAbout() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void showHelp() {
-		// TODO Auto-generated method stub
-
+		Intent about = new Intent(this, com.gek.and.geklib.activity.DefaultAboutActivity.class);
+		
+		Project4App theApp = Project4App.getApp(this);
+		
+		about.putExtra("gek_about_appName", getResources().getString(R.string.app_name));
+		about.putExtra("gek_about_icon", R.drawable.ic_launcher_clock);
+		about.putExtra("gek_about_header_line1", theApp.getVersion());
+		about.putExtra("gek_about_header_line2", theApp.getCopyright());
+		about.putExtra("gek_about_header_line3", theApp.getDeveloper());
+		about.putExtra("gek_about_content", theApp.loadHtmlAboutContent());
+		
+		startActivity(about);
 	}
 
 	private void changeSettings() {
-		ActivityUtil.startActivity(getApplicationContext(),
-				SettingsActivity.class);
+		Intent settings = new Intent(this, SettingsActivity.class);
+		settings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(settings);
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getActionBar().setTitle(R.string.title_project_dashboard);
-		readSettings();
-	}
-
-	private void readSettings() {
-		this.settings = ActivityUtil.getAllSettings(this);
+		
+		//workaround for galaxy s2 - bug, not showing 3 dots overflow menu
+		try {
+	        ViewConfiguration config = ViewConfiguration.get(this);
+	        Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+	        if(menuKeyField != null) {
+	            menuKeyField.setAccessible(true);
+	            menuKeyField.setBoolean(config, false);
+	        }
+	    } catch (Exception ex) {
+	        // Ignore
+	    }
 	}
 
 	@Override
 	protected void onResume() {
-		readSettings();
 		super.onResume();
 	}
 

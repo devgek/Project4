@@ -1,6 +1,5 @@
 package com.gek.and.project4.activity;
 
-import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 
@@ -17,24 +16,34 @@ import android.widget.Toast;
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.async.ExportGenerator;
+import com.gek.and.project4.async.SummaryLoader;
+import com.gek.and.project4.async.SummaryLoader.SummaryLoaderTarget;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.menu.PeriodActionProvider.PeriodActionProviderListener;
 import com.gek.and.project4.menu.ProjectActionProvider.ProjectActionProviderListener;
 import com.gek.and.project4.util.DateUtil;
 import com.gek.and.project4.util.FileUtil;
 
-public class BookingListActivity extends FragmentActivity implements ProjectActionProviderListener, PeriodActionProviderListener {
+public class BookingListActivity extends FragmentActivity implements ProjectActionProviderListener, PeriodActionProviderListener, SummaryLoaderTarget {
 	private static final String PERIOD_ITEM_POSITION = "period_item_position";
 	private static final String PROJECT_ITEM_POSITION = "project_item_position";
 	private int periodActionPosition;
 	private int projectActionPosition;
 
+	//first action selection after create is ignored
+	private boolean firstActionSelection;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.booking_frame);
 		getActionBar().setDisplayShowTitleEnabled(false);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		this.firstActionSelection = true;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
 	}
 
 	@Override
@@ -48,11 +57,11 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_export:
+		int itemId = item.getItemId();
+		if (itemId == R.id.action_export) {
 			exportBookings();
 			return true;
-		default:
+		} else {
 			return false;
 		}
 	}
@@ -88,6 +97,12 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 	}
 
 	public void switchToFragment() {
+		if (this.firstActionSelection) {
+			this.firstActionSelection = false;
+			return;
+		}
+		Project4App.getApp(this).setLastBookingList(null);
+		
 		Fragment fragment = new  BookingListFragment(periodActionPosition, projectActionPosition);
 		getFragmentManager().beginTransaction().replace(R.id.booking_frame_container, fragment).commit();
 	}
@@ -131,6 +146,23 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 		buf.append(".csv");
 		
 		return buf.toString();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			if (requestCode == 3000) {
+				boolean reloadList = data.getBooleanExtra("reloadList", false);
+				if (reloadList) {
+					Project4App.getApp(this).setLastBookingList(null);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void onPostSummaryLoad() {
+		System.out.println("BookingListActivity::onPostSummaryLoad");
 	}
 
 }

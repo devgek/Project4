@@ -31,6 +31,7 @@ public class BookingDao extends AbstractDao<Booking, Long> {
         public final static Property From = new Property(2, java.util.Date.class, "from", false, "FROM");
         public final static Property To = new Property(3, java.util.Date.class, "to", false, "TO");
         public final static Property Minutes = new Property(4, Integer.class, "minutes", false, "MINUTES");
+        public final static Property Note = new Property(5, String.class, "note", false, "NOTE");
     };
 
     private DaoSession daoSession;
@@ -54,7 +55,8 @@ public class BookingDao extends AbstractDao<Booking, Long> {
                 "'PROJECT_ID' INTEGER," + // 1: projectId
                 "'FROM' INTEGER NOT NULL ," + // 2: from
                 "'TO' INTEGER," + // 3: to
-                "'MINUTES' INTEGER);"); // 4: minutes
+                "'MINUTES' INTEGER," + // 4: minutes
+                "'NOTE' TEXT);"); // 5: note
     }
 
     /** Drops the underlying database table. */
@@ -88,6 +90,11 @@ public class BookingDao extends AbstractDao<Booking, Long> {
         if (minutes != null) {
             stmt.bindLong(5, minutes);
         }
+ 
+        String note = entity.getNote();
+        if (note != null) {
+            stmt.bindString(6, note);
+        }
     }
 
     @Override
@@ -110,7 +117,8 @@ public class BookingDao extends AbstractDao<Booking, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getLong(offset + 1), // projectId
             new java.util.Date(cursor.getLong(offset + 2)), // from
             cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)), // to
-            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4) // minutes
+            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // minutes
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // note
         );
         return entity;
     }
@@ -123,6 +131,7 @@ public class BookingDao extends AbstractDao<Booking, Long> {
         entity.setFrom(new java.util.Date(cursor.getLong(offset + 2)));
         entity.setTo(cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)));
         entity.setMinutes(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
+        entity.setNote(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
      }
     
     /** @inheritdoc */
