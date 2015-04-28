@@ -1,10 +1,11 @@
-package com.gek.and.project4.app;
+package com.gek.and.project4;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.model.BookedValues;
 import com.gek.and.project4.util.DateUtil;
@@ -78,17 +79,18 @@ public class Summary {
 			}
 		}
 		else {
+			Integer minutes = booking.getMinutes() == null ? DateUtil.getMinutes(booking.getFrom(), booking.getTo()) : booking.getMinutes();
 			if (isDay(cal)) {
-				minutesDay += booking.getMinutes();
-				addToMap(projectsToday, booking.getProjectId(), booking.getMinutes(), 0);
+				minutesDay += minutes;
+				addToMap(projectsToday, booking.getProjectId(), minutes, 0);
 			}
 			if (isWeek(cal)) {
-				minutesWeek += booking.getMinutes();
-				addToMap(projectsWeek, booking.getProjectId(), booking.getMinutes(), 0);
+				minutesWeek += minutes;
+				addToMap(projectsWeek, booking.getProjectId(), minutes, 0);
 			}
 			if (isMonth(cal)) {
-				minutesMonth += booking.getMinutes();
-				addToMap(projectsMonth, booking.getProjectId(), booking.getMinutes(), 0);
+				minutesMonth += minutes;
+				addToMap(projectsMonth, booking.getProjectId(), minutes, 0);
 			}
 //			if (isYear(cal)) {
 //				minutesYear += booking.getMinutes();

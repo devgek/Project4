@@ -194,8 +194,9 @@ public class BookingService {
 		cTo.set(Calendar.SECOND, 59);
 
 		lastOpenBooking.setTo(cTo.getTime());
+		lastOpenBooking.setMinutes(DateUtil.getMinutes(lastOpenBooking.getFrom(), lastOpenBooking.getTo()));
 		
-		bookingDao.insert(lastOpenBooking);
+		bookingDao.update(lastOpenBooking);
 		
 		//if there is more than one day left
 		for (int iDay = startDay + 1; iDay < stopDay; iDay++) {

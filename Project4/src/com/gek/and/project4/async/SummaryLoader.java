@@ -5,8 +5,8 @@ import java.util.List;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.gek.and.project4.Summary;
 import com.gek.and.project4.app.Project4App;
-import com.gek.and.project4.app.Summary;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.service.BookingService;
 

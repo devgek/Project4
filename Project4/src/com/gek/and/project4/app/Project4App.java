@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.gek.and.geklib.type.AppType;
 import com.gek.and.geklib.util.AboutUtil;
 import com.gek.and.geklib.util.PackageInfoUtil;
+import com.gek.and.project4.Summary;
 import com.gek.and.project4.dao.BookingDao;
 import com.gek.and.project4.dao.DaoMaster;
 import com.gek.and.project4.dao.DaoSession;

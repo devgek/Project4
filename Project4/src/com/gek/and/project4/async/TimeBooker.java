@@ -2,9 +2,9 @@ package com.gek.and.project4.async;
 
 import android.os.AsyncTask;
 
+import com.gek.and.project4.Summary;
 import com.gek.and.project4.activity.DashboardActivity;
 import com.gek.and.project4.app.Project4App;
-import com.gek.and.project4.app.Summary;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.service.BookingService;
 import com.gek.and.project4.util.L;
