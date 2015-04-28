@@ -8,7 +8,9 @@
     <TableRow
         android:id="@+id/summaryTableRowToday"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:gravity="center" 
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/summary_title_today"
@@ -40,7 +42,9 @@
     <TableRow
         android:id="@+id/summaryTableRowWeek"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:gravity="center" 
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/summary_title_week"
@@ -72,7 +76,9 @@
     <TableRow
         android:id="@+id/summaryTableRowMonth"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:gravity="center" 
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/summary_title_month"

@@ -1,4 +1,4 @@
-package com.gek.and.project4.card;
+package com.gek.and.project4.listadapter;
 
 import android.app.Activity;
 import android.content.Context;

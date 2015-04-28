@@ -11,12 +11,15 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.gek.and.geklib.util.WorkaroundActionOverflow;
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
 import com.gek.and.project4.async.ExportGenerator;
-import com.gek.and.project4.async.SummaryLoader;
 import com.gek.and.project4.async.SummaryLoader.SummaryLoaderTarget;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.menu.PeriodActionProvider.PeriodActionProviderListener;
@@ -39,6 +42,8 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 		getActionBar().setDisplayShowTitleEnabled(false);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		this.firstActionSelection = true;
+		
+		WorkaroundActionOverflow.execute(this);
 	}
 
 	@Override
@@ -58,10 +63,12 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int itemId = item.getItemId();
+		
 		if (itemId == R.id.action_export) {
 			exportBookings();
 			return true;
-		} else {
+		} 
+		else {
 			return false;
 		}
 	}
@@ -147,6 +154,18 @@ public class BookingListActivity extends FragmentActivity implements ProjectActi
 		
 		return buf.toString();
 	}
+
+	protected void addBooking() {
+		Booking booking = new Booking();
+		Calendar now = Calendar.getInstance();
+		booking.setFrom(now.getTime());
+		booking.setTo(now.getTime());
+		Project4App.getApp(this).setEditBooking(booking);
+		
+		Intent intent = new Intent(this, BookingDetailActivity.class);
+		startActivityForResult(intent, 3000);
+	}
+
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

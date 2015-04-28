@@ -7,5 +7,5 @@
     <include layout="@layout/dashboard_summary" />
 
     <include layout="@layout/project_list" />
-
+    
 </LinearLayout>

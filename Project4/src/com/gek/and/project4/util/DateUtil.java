@@ -72,11 +72,28 @@ public class DateUtil {
 	}
 	
 	public static Integer getMinutes(Date from, Date to) {
-		long millis = to.getTime() - from.getTime();
-		return Integer.valueOf((int)millis / 1000 / 60);
+		if (from == null || to == null) {
+			return Integer.valueOf(0);
+		}
+		else {
+			long millis = to.getTime() - from.getTime();
+			return Integer.valueOf((int)millis / 1000 / 60);
+		}
 	}
 	
 	private static String formatHM(int hours, int minutes) {
 		return String.format("%02d:%02d", hours, minutes);
+	}
+
+	public static Calendar combineDateAndTime(Calendar date, Calendar time) {
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.YEAR, date.get(Calendar.YEAR));
+		c.set(Calendar.MONTH, date.get(Calendar.MONTH));
+		c.set(Calendar.DAY_OF_YEAR, date.get(Calendar.DAY_OF_YEAR));
+		
+		c.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
+		c.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
+		c.set(Calendar.SECOND, time.get(Calendar.SECOND));
+		return c;
 	}
 }

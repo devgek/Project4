@@ -16,6 +16,7 @@ import com.gek.and.project4.dao.ProjectDao;
 import com.gek.and.project4.dao.SelectiveUpdateOpenHelper;
 import com.gek.and.project4.entity.Booking;
 import com.gek.and.project4.model.ProjectCard;
+import com.gek.and.project4.model.ProjectSummary;
 import com.gek.and.project4.service.BookingService;
 import com.gek.and.project4.service.ProjectService;
 
@@ -33,6 +34,7 @@ public abstract class Project4App extends Application {
     private List<Booking> lastBookingList;
     private Booking editBooking;
     protected AppType appType;
+    private List<ProjectSummary> periodSummaryList;
 
 	@Override
 	public void onCreate() {
@@ -62,7 +64,7 @@ public abstract class Project4App extends Application {
 	}
 	
 	public String getDeveloper() {
-		return "gerald.kahrer[at]gmail.com";
+		return "ptime.app[at]gmail.com";
 	}
 	
 	public String getAboutContentAssetName() {
@@ -137,6 +139,14 @@ public abstract class Project4App extends Application {
 
 	public void setEditBooking(Booking editBooking) {
 		this.editBooking = editBooking;
+	}
+
+	public List<ProjectSummary> getPeriodSummaryList() {
+		return periodSummaryList;
+	}
+
+	public void setPeriodSummaryList(List<ProjectSummary> periodSummaryList) {
+		this.periodSummaryList = periodSummaryList;
 	}
 
 }

@@ -18,10 +18,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_new" 
         android:layout_alignParentBottom="true" 
-        android:layout_alignParentRight="true"
         android:contentDescription="@string/action_add_project" 
         android:background="@drawable/button_circle" 
-        android:layout_marginRight="25dp" 
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="25dp" 
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

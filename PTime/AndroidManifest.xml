@@ -37,6 +37,9 @@
         <activity android:name="com.gek.and.project4.activity.SettingsActivity" />
         <activity android:name="com.gek.and.geklib.activity.HtmlAboutActivity" />
         <activity android:name="com.gek.and.geklib.activity.DefaultAboutActivity" />
+        <activity
+            android:name="com.gek.and.project4.activity.PeriodSummaryActivity"
+            android:theme="@style/AppTheme.Dialog.Light" />
     </application>
 
 </manifest>

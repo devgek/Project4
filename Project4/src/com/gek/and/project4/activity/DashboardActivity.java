@@ -1,6 +1,7 @@
 package com.gek.and.project4.activity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -32,16 +32,20 @@ import com.gek.and.project4.app.Summary;
 import com.gek.and.project4.async.SummaryLoader;
 import com.gek.and.project4.async.SummaryLoader.SummaryLoaderTarget;
 import com.gek.and.project4.async.TimeBooker;
-import com.gek.and.project4.card.ProjectCardArrayAdapter;
 import com.gek.and.project4.entity.Project;
+import com.gek.and.project4.listadapter.ProjectCardArrayAdapter;
 import com.gek.and.project4.model.BookedValues;
 import com.gek.and.project4.model.ProjectCard;
+import com.gek.and.project4.model.ProjectSummary;
 import com.gek.and.project4.service.ProjectService;
+import com.gek.and.project4.types.PeriodType;
 import com.gek.and.project4.util.DateUtil;
 import com.gek.and.project4.util.L;
 
 public class DashboardActivity extends MainActivity implements SummaryLoaderTarget{
 	private static final String TAG = "DashboardActivity::";
+	private final int BAR_HEIGHT = 40;
+	private final int BAR_PADDING = 0;
 	
 	private ProjectService projectService;
 	private ProjectCardArrayAdapter projectCardAdapter;
@@ -95,6 +99,8 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		
 		startSummaryLoader();
 
+		final Summary summary = Project4App.getApp(this).getSummary();
+		
 		setContentView(R.layout.main);
 		mainView = this.findViewById(android.R.id.content);
 
@@ -103,14 +109,37 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		textViewMonth = (TextView) findViewById(R.id.summary_title_month);
 
 		colorBarViewToday = (ColorBarView) findViewById(R.id.colorBarToday);
-		colorBarViewToday.setBarHeight(50);
-		colorBarViewToday.setPaddingTop(10);
+		colorBarViewToday.setBarHeight(BAR_HEIGHT);
+		colorBarViewToday.setPaddingTop(BAR_PADDING);
+		colorBarViewToday.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				showSummaryDialog(PeriodType.TODAY, getProjectSummary(summary.getProjectsToday()));
+			}
+		});
+		
 		colorBarViewWeek = (ColorBarView) findViewById(R.id.colorBarWeek);
-		colorBarViewWeek.setBarHeight(50);
-		colorBarViewWeek.setPaddingTop(10);
+		colorBarViewWeek.setBarHeight(BAR_HEIGHT);
+		colorBarViewWeek.setPaddingTop(BAR_PADDING);
+		colorBarViewWeek.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				showSummaryDialog(PeriodType.WEEK, getProjectSummary(summary.getProjectsWeek()));
+			}
+		});
+
 		colorBarViewMonth = (ColorBarView) findViewById(R.id.colorBarMonth);
-		colorBarViewMonth.setBarHeight(50);
-		colorBarViewMonth.setPaddingTop(10);
+		colorBarViewMonth.setBarHeight(BAR_HEIGHT);
+		colorBarViewMonth.setPaddingTop(BAR_PADDING);
+		colorBarViewMonth.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				showSummaryDialog(PeriodType.MONTH, getProjectSummary(summary.getProjectsMonth()));
+			}
+		});
 
 		projectCardListView = (ListView) findViewById(R.id.project_list_view);
 
@@ -138,6 +167,14 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		if (this.tickerThread == null && this.tickerThreadFlag == false) {
 			startRunningBookingTickerThread();
 		}
+	}
+	
+	private void showSummaryDialog(PeriodType today, List<ProjectSummary> periodSummaryList) {
+		Intent periodSummaryIntent = new Intent(this, PeriodSummaryActivity.class);
+		periodSummaryIntent.putExtra("periodCode", today.getCode());
+		Project4App.getApp(this).setPeriodSummaryList(periodSummaryList);
+		
+		startActivity(periodSummaryIntent);
 	}
 
 	private void startSummaryLoader() {
@@ -199,6 +236,8 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 	}
 
 	public void onPostTimeBooking(Long projectId, boolean bookedStart) {
+		deleteNotifications();
+		
 		Long startedProjectId = -1L;
 		if (bookedStart) {
 			startedProjectId = projectId;
@@ -231,13 +270,18 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		Notification noti = new Notification.Builder(this)
 				.setContentTitle(project.getCompany())
 				.setContentText(project.getTitle())
-				.setSmallIcon(android.R.drawable.stat_notify_more)
+				.setSmallIcon(R.drawable.gek_notify_clock)
 				.setContentIntent(pendingIntent).build();
 		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		// hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
 
 		notificationManager.notify(0, noti);
+	}
+	
+	private void deleteNotifications() {
+		NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		notificationManager.cancelAll();
 	}
 
 	private void updateRunningProject(Long projectId) {
@@ -282,6 +326,31 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		colorBarViewMonth.setColorBars(getColorBars(summary.getProjectsMonth()));
 	}
 
+	private List<ProjectSummary> getProjectSummary(Map<Long, BookedValues> projects) {
+		List<ProjectSummary> projectSummaries = new ArrayList<ProjectSummary>();
+
+		Set<Map.Entry<Long, BookedValues>> entries = projects.entrySet();
+		Iterator<Map.Entry<Long, BookedValues>> it = entries.iterator();
+		while (it.hasNext()) {
+			Map.Entry<Long, BookedValues> entry = (Map.Entry<Long, BookedValues>) it.next();
+			Long projectId = entry.getKey();
+			
+			Project project = Project4App.getApp(this).getProjectService().getProject(projectId);
+			int minutes = entry.getValue().getComplete();
+			
+			ProjectSummary ps = new ProjectSummary();
+			ps.setColorHex(project.getColor());
+			ps.setCustomer(project.getCompany());
+			ps.setProject(project.getTitle());
+			ps.setSummaryMinutes(minutes);
+			
+			projectSummaries.add(ps);
+		}
+		
+		Collections.sort(projectSummaries);
+		return projectSummaries;
+	}
+	
 	private List<ColorBar> getColorBars(Map<Long, BookedValues> projects) {
 		List<ColorBar> colorBars = new ArrayList<ColorBar>();
 
@@ -301,6 +370,8 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 			ColorBar bar = new ColorBar(entry.getValue().getComplete(), projectColor);
 			colorBars.add(bar);
 		}
+		
+		Collections.sort(colorBars);
 		return colorBars;
 	}
 	

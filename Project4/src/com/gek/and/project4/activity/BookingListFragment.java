@@ -10,13 +10,15 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
-import com.gek.and.project4.card.BookingListArrayAdapter;
 import com.gek.and.project4.entity.Booking;
+import com.gek.and.project4.listadapter.BookingListArrayAdapter;
 import com.gek.and.project4.model.ProjectCard;
 import com.gek.and.project4.service.BookingService;
 import com.gek.and.project4.types.PeriodType;
@@ -45,7 +47,17 @@ public class BookingListFragment extends Fragment{
 	    this.lvBookingList = (ListView) contentView.findViewById(R.id.booking_list_view);
 
 	    textViewSummaryTitle.setText(getSummaryText(this.periodPosition));
-	    
+
+		ImageView addButton = (ImageView) contentView.findViewById(R.id.button_add_booking);
+		addButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				BookingListActivity a = (BookingListActivity) getActivity();
+				a.addBooking();
+			}
+		});
+
 
 	    return contentView;
 	}

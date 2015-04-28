@@ -84,7 +84,7 @@ public class ColorPickerActivity extends Activity implements
 	}
 
 	private void goBackOk() {
-		Intent back = new Intent(getApplicationContext(), DashboardActivity.class);
+		Intent back = new Intent();
 		setResult(RESULT_OK, back);
 		finish();
 	}
