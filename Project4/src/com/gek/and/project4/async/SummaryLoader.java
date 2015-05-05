@@ -23,7 +23,7 @@ public class SummaryLoader extends AsyncTask<Object, Void, Void> {
 		parentActivity = (Activity) params[1];
 		
 		BookingService bookingService = Project4App.getApp(parentActivity).getBookingService();
-		List<Booking> bookings = bookingService.getThisMonth();
+		List<Booking> bookings = bookingService.getThisYear();
 		
 		Summary summary = Project4App.getApp(parentActivity).getSummary();
 		

@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    card_view:cardCornerRadius="0dp" >
+    card_view:cardCornerRadius="0dp" 
+    android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingLeft="0dp"
-        android:paddingRight="10dp" >
+        >
 
         <ImageView
             android:id="@+id/project_card_color_bar"
@@ -54,7 +55,8 @@
                 android:layout_gravity="right"
                 android:contentDescription="@string/action_edit_project"
                 android:src="@drawable/ic_action_overflow" 
-                android:background="@android:color/transparent"/>
+                android:background="?android:attr/selectableItemBackground" 
+                style="?android:attr/borderlessButtonStyle"/>
 
             <TextView
                 android:id="@+id/project_card_running_today"

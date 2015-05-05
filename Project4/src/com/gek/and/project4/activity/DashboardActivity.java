@@ -18,6 +18,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -111,7 +112,9 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		colorBarViewToday = (ColorBarView) findViewById(R.id.colorBarToday);
 		colorBarViewToday.setBarHeight(BAR_HEIGHT);
 		colorBarViewToday.setPaddingTop(BAR_PADDING);
-		colorBarViewToday.setOnClickListener(new OnClickListener() {
+		
+		FrameLayout colorBarViewTodayFrame = (FrameLayout) findViewById(R.id.colorBarTodayFrame);
+		colorBarViewTodayFrame.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -122,7 +125,9 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		colorBarViewWeek = (ColorBarView) findViewById(R.id.colorBarWeek);
 		colorBarViewWeek.setBarHeight(BAR_HEIGHT);
 		colorBarViewWeek.setPaddingTop(BAR_PADDING);
-		colorBarViewWeek.setOnClickListener(new OnClickListener() {
+
+		FrameLayout colorBarViewWeekFrame = (FrameLayout) findViewById(R.id.colorBarWeekFrame);
+		colorBarViewWeekFrame.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -133,7 +138,9 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		colorBarViewMonth = (ColorBarView) findViewById(R.id.colorBarMonth);
 		colorBarViewMonth.setBarHeight(BAR_HEIGHT);
 		colorBarViewMonth.setPaddingTop(BAR_PADDING);
-		colorBarViewMonth.setOnClickListener(new OnClickListener() {
+
+		FrameLayout colorBarViewMonthFrame = (FrameLayout) findViewById(R.id.colorBarMonthFrame);
+		colorBarViewMonthFrame.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
