@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gek.and.ptime.free"
-    android:versionCode="2"
-    android:versionName="1.0.1 (Free)" >
+    android:versionCode="4"
+    android:versionName="1.0.3 (Free)" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -27,6 +27,9 @@
             android:parentActivityName="com.gek.and.project4.activity.DashboardActivity" />
         <activity
             android:name="com.gek.and.project4.activity.BookingListActivity"
+            android:parentActivityName="com.gek.and.project4.activity.DashboardActivity" />
+        <activity
+            android:name="com.gek.and.project4.activity.ProjectManagementActivity"
             android:parentActivityName="com.gek.and.project4.activity.DashboardActivity" />
         <activity
             android:name="com.gek.and.project4.activity.ColorPickerActivity"

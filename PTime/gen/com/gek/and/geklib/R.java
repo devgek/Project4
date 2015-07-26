@@ -11,17 +11,17 @@ public final class R {
 		public static final int ic_launcher = 0x7f020015;
 	}
 	public static final class id {
-		public static final int gek_about_default = 0x7f0b002a;
-		public static final int gek_about_default_content = 0x7f0b0032;
-		public static final int gek_about_default_header = 0x7f0b002b;
-		public static final int gek_about_default_header_appname = 0x7f0b002e;
-		public static final int gek_about_default_header_line1 = 0x7f0b002f;
-		public static final int gek_about_default_header_line2 = 0x7f0b0030;
-		public static final int gek_about_default_header_line3 = 0x7f0b0031;
-		public static final int gek_about_default_header_lines = 0x7f0b002d;
-		public static final int gek_about_default_icon = 0x7f0b002c;
-		public static final int gek_about_html = 0x7f0b0033;
-		public static final int gek_button_about_ok = 0x7f0b0029;
+		public static final int gek_about_default = 0x7f0b002c;
+		public static final int gek_about_default_content = 0x7f0b0034;
+		public static final int gek_about_default_header = 0x7f0b002d;
+		public static final int gek_about_default_header_appname = 0x7f0b0030;
+		public static final int gek_about_default_header_line1 = 0x7f0b0031;
+		public static final int gek_about_default_header_line2 = 0x7f0b0032;
+		public static final int gek_about_default_header_line3 = 0x7f0b0033;
+		public static final int gek_about_default_header_lines = 0x7f0b002f;
+		public static final int gek_about_default_icon = 0x7f0b002e;
+		public static final int gek_about_html = 0x7f0b0035;
+		public static final int gek_button_about_ok = 0x7f0b002b;
 	}
 	public static final class layout {
 		public static final int gek_about = 0x7f030009;

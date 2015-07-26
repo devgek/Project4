@@ -14,9 +14,11 @@ import com.gek.and.project4.util.DateUtil;
 
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 	private EditText editText;
+	private OnTimeSetListener timeSetListener;
 	
-	public TimePickerFragment(EditText editView) {
+	public TimePickerFragment(EditText editView, OnTimeSetListener listener) {
 		this.editText = editView;
+		this.timeSetListener = listener;
 	}
 	
 	@Override
@@ -38,7 +40,11 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 		c.set(Calendar.MINUTE, minute);
 		c.set(Calendar.SECOND, 0);
 		editText.setText(DateUtil.getFormattedTime(c.getTime()));
+		
+		timeSetListener.onTimeSet();
 	}
 
-	
+	public interface OnTimeSetListener {
+		public void onTimeSet();
+	}
 }

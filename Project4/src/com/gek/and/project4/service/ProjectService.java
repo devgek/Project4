@@ -20,20 +20,30 @@ public class ProjectService {
 		projectDao = daoSession.getProjectDao();
 	}
 	
-	public List<ProjectCard> getActiveProjects() {
+	public List<ProjectCard> getAllProjects(Long runningProjectId) {
+		return getProjects(true, runningProjectId);
+	}
+	
+	public List<ProjectCard> getActiveProjects(Long runningProjectId) {
+		return getProjects(false, runningProjectId);
+	}
+
+	private List<ProjectCard> getProjects(boolean all, Long runningProjectId) {
 		List<ProjectCard> projectCards = new ArrayList<ProjectCard>();
 		
 		List<Project> projectEntities = projectDao.loadAll();
 		for (Project projectEntity : projectEntities) {
-			projectCards.add(toCard(projectEntity));
+			if (all || projectEntity.getActive().equals(Boolean.TRUE)) {
+				projectCards.add(toCard(projectEntity, runningProjectId));
+			}
 		}
 		
 		return projectCards;
 	}
-	
-	public Project addOrUpdateProject(long projectId, String customer, String title, String subTitle, String color, int priority) {
+
+	public Project addOrUpdateProject(long projectId, String customer, String title, String subTitle, String color, int priority, boolean active) {
 		if (projectId < 0) {
-			return addProject(customer, title, subTitle, color, priority);
+			return addProject(customer, title, subTitle, color, priority, active);
 		}
 		
 		Project p = getProject(projectId);
@@ -42,14 +52,15 @@ public class ProjectService {
 		p.setSubTitle(subTitle);
 		p.setColor(color);
 		p.setPriority(priority);
+		p.setActive(Boolean.valueOf(active));
 		
 		this.projectDao.update(p);
 		
 		return p;
 	}
 	
-	public Project addProject(String customer, String title, String subTitle, String color, int priority) {
-		Project p = new Project(null, title, subTitle, customer, color, priority);
+	public Project addProject(String customer, String title, String subTitle, String color, int priority, boolean active) {
+		Project p = new Project(null, title, subTitle, customer, color, priority, Boolean.valueOf(active));
 		long id = this.projectDao.insert(p);
 		p.setId(id);
 		
@@ -88,7 +99,10 @@ public class ProjectService {
 		db.execSQL(sql);
 	}
 
-	public ProjectCard toCard(Project project) {
-		return new ProjectCard(project);
+	public ProjectCard toCard(Project project, Long runningProjectId) {
+		ProjectCard card = new ProjectCard(project);
+		card.setRunningNow(runningProjectId != null && runningProjectId.longValue() == project.getId().longValue());
+		
+		return card;
 	}
 }

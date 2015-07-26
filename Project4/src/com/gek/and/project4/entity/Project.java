@@ -25,6 +25,7 @@ public class Project {
     /** Not-null value. */
     private String color;
     private Integer priority;
+    private Boolean active;
 
     /** Used to resolve relations */
     private transient DaoSession daoSession;
@@ -44,13 +45,14 @@ public class Project {
         this.id = id;
     }
 
-    public Project(Long id, String title, String subTitle, String company, String color, Integer priority) {
+    public Project(Long id, String title, String subTitle, String company, String color, Integer priority, Boolean active) {
         this.id = id;
         this.title = title;
         this.subTitle = subTitle;
         this.company = company;
         this.color = color;
         this.priority = priority;
+        this.active = active;
     }
 
     /** called by internal mechanisms, do not call yourself. */
@@ -111,6 +113,14 @@ public class Project {
 
     public void setPriority(Integer priority) {
         this.priority = priority;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */

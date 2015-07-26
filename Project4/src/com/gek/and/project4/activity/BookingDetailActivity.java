@@ -26,13 +26,15 @@ import com.gek.and.project4.fragment.DatePickerFragment;
 import com.gek.and.project4.fragment.ProjectSelectionFragment;
 import com.gek.and.project4.fragment.ProjectSelectionFragment.ProjectSelectionDialogListener;
 import com.gek.and.project4.fragment.TimePickerFragment;
+import com.gek.and.project4.fragment.TimePickerFragment.OnTimeSetListener;
 import com.gek.and.project4.util.DateUtil;
 import com.gek.and.project4.view.ProjectView;
 
-public class BookingDetailActivity extends Activity implements ProjectSelectionDialogListener{
+public class BookingDetailActivity extends Activity implements ProjectSelectionDialogListener, OnTimeSetListener{
 	private TextView headLine;
 	private EditText from;
 	private EditText to;
+	private EditText duration;
 	private ProjectView projectView;
 	private EditText note;
 	
@@ -98,7 +100,9 @@ public class BookingDetailActivity extends Activity implements ProjectSelectionD
 				showTimePickerDialog((EditText) v);
 			}
 		});
-		
+
+		duration = (EditText) findViewById(R.id.bookingDetailDuration);
+
 		projectView	= (ProjectView) findViewById(R.id.bookingDetailProject);
 		projectView.setOnClickListener(new OnClickListener() {
 			
@@ -148,6 +152,8 @@ public class BookingDetailActivity extends Activity implements ProjectSelectionD
 			to.setText(DateUtil.getFormattedTime(cTo.getTime()));
 			to.setTag(cTo);
 			
+			duration.setText(DateUtil.getFormattedHM(theBooking.getMinutes()));
+			
 			if (theBooking.getProjectId() != null) {
 				prepareDataProject(theBooking.getProjectId());
 			}
@@ -156,6 +162,14 @@ public class BookingDetailActivity extends Activity implements ProjectSelectionD
 		}
 	}
 
+	private void updateDuration() {
+		Calendar cFrom = (Calendar) from.getTag();
+		Calendar cTo = (Calendar) to.getTag();
+		Integer minutes = DateUtil.getMinutes(cFrom.getTime(), cTo.getTime());
+		
+		duration.setText(DateUtil.getFormattedHM(minutes));
+	}
+	
 	private void prepareDataProject(Long projectId) {
 		Project p = Project4App.getApp(this).getProjectService().getProject(projectId);
 		projectView.setCustomer(p.getCompany());
@@ -285,7 +299,7 @@ public class BookingDetailActivity extends Activity implements ProjectSelectionD
 	}
 	
 	public void showTimePickerDialog(final EditText v) {
-	    DialogFragment newFragment = new TimePickerFragment(v);
+	    DialogFragment newFragment = new TimePickerFragment(v, this);
 	    newFragment.show(getFragmentManager(), "timePicker");
 	}
 
@@ -302,6 +316,11 @@ public class BookingDetailActivity extends Activity implements ProjectSelectionD
 			projectView.setTag(projectId);
 			prepareDataProject(projectId);
 		}
+	}
+
+	@Override
+	public void onTimeSet() {
+		updateDuration();
 	}
 	
 }

@@ -29,6 +29,7 @@ public class ProjectDao extends AbstractDao<Project, Long> {
         public final static Property Company = new Property(3, String.class, "company", false, "COMPANY");
         public final static Property Color = new Property(4, String.class, "color", false, "COLOR");
         public final static Property Priority = new Property(5, Integer.class, "priority", false, "PRIORITY");
+        public final static Property Active = new Property(6, Boolean.class, "active", false, "ACTIVE");
     };
 
     private DaoSession daoSession;
@@ -52,7 +53,8 @@ public class ProjectDao extends AbstractDao<Project, Long> {
                 "'SUB_TITLE' TEXT," + // 2: subTitle
                 "'COMPANY' TEXT NOT NULL ," + // 3: company
                 "'COLOR' TEXT NOT NULL ," + // 4: color
-                "'PRIORITY' INTEGER);"); // 5: priority
+                "'PRIORITY' INTEGER," + // 5: priority
+                "'ACTIVE' INTEGER);"); // 6: active
     }
 
     /** Drops the underlying database table. */
@@ -83,6 +85,11 @@ public class ProjectDao extends AbstractDao<Project, Long> {
         if (priority != null) {
             stmt.bindLong(6, priority);
         }
+ 
+        Boolean active = entity.getActive();
+        if (active != null) {
+            stmt.bindLong(7, active ? 1l: 0l);
+        }
     }
 
     @Override
@@ -106,7 +113,8 @@ public class ProjectDao extends AbstractDao<Project, Long> {
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // subTitle
             cursor.getString(offset + 3), // company
             cursor.getString(offset + 4), // color
-            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5) // priority
+            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // priority
+            cursor.isNull(offset + 6) ? null : cursor.getShort(offset + 6) != 0 // active
         );
         return entity;
     }
@@ -120,6 +128,7 @@ public class ProjectDao extends AbstractDao<Project, Long> {
         entity.setCompany(cursor.getString(offset + 3));
         entity.setColor(cursor.getString(offset + 4));
         entity.setPriority(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
+        entity.setActive(cursor.isNull(offset + 6) ? null : cursor.getShort(offset + 6) != 0);
      }
     
     /** @inheritdoc */

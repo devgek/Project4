@@ -96,7 +96,13 @@ public abstract class Project4App extends Application {
 	public List<ProjectCard> getProjectCardList() {
 		return projectCardList;
 	}
-
+	
+	public List<ProjectCard> getUpdatedProjectCardList() {
+		Long runningProjectId = summary.getRunningNow() != null ? summary.getRunningNow().getProjectId() : null;
+		this.projectCardList = projectService.getActiveProjects(runningProjectId);
+		return projectCardList;
+	}
+	
 	public BookingService getBookingService() {
 		return bookingService;
 	}

@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.gek.and.geklib.util.WorkaroundActionOverflow;
 import com.gek.and.project4.R;
 import com.gek.and.project4.app.Project4App;
+import com.gek.and.project4.listadapter.ProjectManagementArrayAdapter;
+import com.gek.and.project4.service.ProjectService;
 
 public class MainActivity extends Activity {
 	@Override
@@ -26,6 +29,9 @@ public class MainActivity extends Activity {
 		if (itemId == R.id.action_list_bookings) {
 			listBookings();
 			return true;
+		} else if (itemId == R.id.action_manage_projects) {
+			manageProjects();
+			return true;
 		} else if (itemId == R.id.action_settings) {
 			changeSettings();
 			return true;
@@ -36,11 +42,18 @@ public class MainActivity extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		getActionBar().setTitle(R.string.title_project_dashboard);
+		
+		WorkaroundActionOverflow.execute(this);
+	}
 
-	private void listBookings() {
-		Intent bookings = new Intent(this, BookingListActivity.class);
-		bookings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(bookings);
+	@Override
+	protected void onResume() {
+		super.onResume();
 	}
 
 	private void showAbout() {
@@ -57,24 +70,22 @@ public class MainActivity extends Activity {
 		
 		startActivity(about);
 	}
+	private void listBookings() {
+		startActivityNewTask(BookingListActivity.class);
+	}
 
 	private void changeSettings() {
-		Intent settings = new Intent(this, SettingsActivity.class);
-		settings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(settings);
+		startActivityNewTask(SettingsActivity.class);
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		getActionBar().setTitle(R.string.title_project_dashboard);
-		
-		WorkaroundActionOverflow.execute(this);
+	private void manageProjects() {
+		Intent intent = new Intent(this, ProjectManagementActivity.class);
+		startActivityForResult(intent, 3000);
 	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
+	
+	private void startActivityNewTask(Class<?> theActivityClass) {
+		Intent intent = new Intent(this, theActivityClass);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(intent);
 	}
-
 }

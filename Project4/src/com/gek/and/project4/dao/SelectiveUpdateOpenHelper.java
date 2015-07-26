@@ -19,6 +19,10 @@ public class SelectiveUpdateOpenHelper extends DaoMaster.DevOpenHelper {
         if (newVersion == 7) {
             BookingTable.migrateTo7(db);
         }
+        else
+        if (newVersion == 8) {
+            ProjectTable.migrateTo8(db);
+        }
         else {
         	super.onUpgrade(db, oldVersion, newVersion);
         }
@@ -27,6 +31,12 @@ public class SelectiveUpdateOpenHelper extends DaoMaster.DevOpenHelper {
 	public static class BookingTable {
 		public static void migrateTo7(SQLiteDatabase db) {
 			db.execSQL("alter table " + BookingDao.TABLENAME + " add column NOTE text");
+		}
+	}
+	
+	public static class ProjectTable {
+		public static void migrateTo8(SQLiteDatabase db) {
+			db.execSQL("alter table " + ProjectDao.TABLENAME + " add column ACTIVE integer default 1");
 		}
 	}
 

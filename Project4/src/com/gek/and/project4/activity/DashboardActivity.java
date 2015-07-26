@@ -45,6 +45,9 @@ import com.gek.and.project4.util.L;
 
 public class DashboardActivity extends MainActivity implements SummaryLoaderTarget{
 	private static final String TAG = "DashboardActivity::";
+	private static final int RC_PROJECT__DETAIL_NEW = 1000;
+	private static final int RC_PROJECT_DETAIL_EDIT = 2000;
+	private static final int RC_PROJECT_MANAGEMENT = 3000;
 	private final int BAR_HEIGHT = 40;
 	private final int BAR_PADDING = 0;
 	
@@ -64,19 +67,16 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 	
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
 	}
 
 	@Override
 	protected void onRestart() {
-		// TODO Auto-generated method stub
 		super.onRestart();
 	}
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 	}
 
@@ -155,7 +155,7 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 		projectCardAdapter = new ProjectCardArrayAdapter(getApplicationContext(), R.layout.project_card);
 		projectCardAdapter.setProjectCardActivity(this);
 
-		Project4App.getApp(this).setProjectCardList(projectService.getActiveProjects());
+		Project4App.getApp(this).setProjectCardList(projectService.getActiveProjects(null));
 		projectCardAdapter.addAll(Project4App.getApp(this).getProjectCardList());
 
 //		updateCardAdapter();
@@ -195,13 +195,13 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 			return;
 		}
 		Intent intent = new Intent(this, ProjectDetailActivity.class);
-		startActivityForResult(intent, 1000);
+		startActivityForResult(intent, RC_PROJECT__DETAIL_NEW);
 	}
 
 	public void editProject(Long projectId) {
 		Intent intent = new Intent(this, ProjectDetailActivity.class);
 		intent.putExtra("projectId", projectId);
-		startActivityForResult(intent, 2000);
+		startActivityForResult(intent, RC_PROJECT_DETAIL_EDIT);
 	}
 
 	public void bookProject(Long projectId) {
@@ -212,12 +212,13 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
-			if (requestCode == 1000 || requestCode == 2000) {
+			if (requestCode == RC_PROJECT__DETAIL_NEW || requestCode == RC_PROJECT_DETAIL_EDIT || requestCode == RC_PROJECT_MANAGEMENT) {
 				boolean reloadSummary = data.getBooleanExtra("reloadSummary", false);
 				if (reloadSummary) {
 					startSummaryLoader();
 				}
 				else {
+					updateSummaryFields();
 					updateCardAdapter();
 					invalidateMainView();
 				}
@@ -227,7 +228,7 @@ public class DashboardActivity extends MainActivity implements SummaryLoaderTarg
 
 	private void updateCardAdapter() {
 		projectCardAdapter.clear();
-		projectCardAdapter.addAll(Project4App.getApp(this).getProjectCardList());
+		projectCardAdapter.addAll(Project4App.getApp(this).getUpdatedProjectCardList());
 	}
 
 	public void onPostSummaryLoad() {

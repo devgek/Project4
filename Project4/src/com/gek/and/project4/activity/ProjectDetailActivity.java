@@ -15,6 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -29,6 +31,7 @@ public class ProjectDetailActivity extends Activity {
 	private EditText editTextCustomer;
 	private EditText editTextProject;
 	private ImageButton buttonProjectColor;
+	private CheckedTextView switchProjectActive;
 	
 	private long projectId;
 	
@@ -83,6 +86,21 @@ public class ProjectDetailActivity extends Activity {
 			}
 		});
 		
+		switchProjectActive = (CheckedTextView) findViewById(R.id.projectDetailActiveSwitch);
+		switchProjectActive.setOnClickListener(new View.OnClickListener() {
+	    	@Override
+	    	public void onClick(View v) {
+	    		if (switchProjectActive.isChecked()) {
+	    			switchProjectActive.setChecked(false);
+	    		}
+	    		else {
+	    			switchProjectActive.setChecked(true);
+	    		}
+	 
+	    		setStateText();
+	    	}
+	    });
+		
 		prepareData();
 		
 		if (isModeNew()) {
@@ -120,12 +138,25 @@ public class ProjectDetailActivity extends Activity {
 			editTextCustomer.setText("");
 			editTextProject.setText("");
 			setProjectColor(getResources().getString(R.color.project_color_preselect));
+			switchProjectActive.setChecked(true);
 		}
 		else {
 			Project editProject = Project4App.getApp(this).getProjectService().getProject(projectId);
 			editTextCustomer.setText(editProject.getCompany());
 			editTextProject.setText(editProject.getTitle());
 			setProjectColor(editProject.getColor());
+			switchProjectActive.setChecked(editProject.getActive() == null || editProject.getActive().equals(Boolean.TRUE));
+		}
+		
+		setStateText();
+	}
+	
+	private void setStateText() {
+		if (switchProjectActive.isChecked()) {
+			switchProjectActive.setText(R.string.project_detail_active_text_on);
+		}
+		else {
+			switchProjectActive.setText(R.string.project_detail_active_text_off);
 		}
 	}
 
@@ -160,9 +191,11 @@ public class ProjectDetailActivity extends Activity {
 
 		String projectColor = getProjectColor();
 		
-		Project p = Project4App.getApp(this).getProjectService().addOrUpdateProject(projectId, customer, title, "", projectColor, 0);
+		boolean active = switchProjectActive.isChecked();
+		
+		Project p = Project4App.getApp(this).getProjectService().addOrUpdateProject(projectId, customer, title, "", projectColor, 0, active);
 		if (isModeNew()) {
-			ProjectCard pCard = Project4App.getApp(this).getProjectService().toCard(p);
+			ProjectCard pCard = Project4App.getApp(this).getProjectService().toCard(p, null);
 			List<ProjectCard> projectCardList = Project4App.getApp(this).getProjectCardList();
 			projectCardList.add(pCard);
 		}

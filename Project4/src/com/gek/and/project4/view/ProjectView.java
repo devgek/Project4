@@ -15,6 +15,7 @@ public class ProjectView extends LinearLayout {
 	private ImageView mColorBar;
 	private TextView mLine1;
 	private TextView mLine2;
+	private boolean dimmed = false;
 
 	public ProjectView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -49,5 +50,27 @@ public class ProjectView extends LinearLayout {
 	
 	public void setColor(int color) {
 		mColorBar.setBackgroundColor(color);
+	}
+	
+	public boolean isDimmed() {
+		return dimmed;
+	}
+
+	public void setDimmed(boolean dimmed) {
+		this.dimmed = dimmed;
+		if (dimmed) {
+			setTranslucent();
+		}
+		else {
+			setOpaque();
+		}
+	}
+
+	private void setTranslucent() {
+		this.setAlpha((float) 0.5);
+	}
+	
+	private void setOpaque() {
+		this.setAlpha((float) 1);
 	}
 }

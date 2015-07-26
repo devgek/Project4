@@ -55,6 +55,24 @@
             android:textSize="@dimen/text_big" />
 
         <TextView
+            android:id="@+id/bookingDetailDurationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/bookingDetailDuration"
+            android:text="@string/booking_detail_duration_label"
+            android:textColor="@android:color/tertiary_text_light" />
+
+        <EditText
+            android:id="@+id/bookingDetailDuration"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_view_big"
+            android:focusable="false"
+            android:gravity="center"
+            android:inputType="text"
+            android:textSize="@dimen/text_big" 
+            android:textColor="@android:color/tertiary_text_light"/>
+
+        <TextView
             android:id="@+id/bookingDetailProjectLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,8 +83,8 @@
         <com.gek.and.project4.view.ProjectView
             android:id="@+id/bookingDetailProject"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-            android:focusable="true"/>
+            android:layout_height="wrap_content"
+            android:focusable="true" />
 
         <TextView
             android:id="@+id/bookingDetailNoteLabel"
